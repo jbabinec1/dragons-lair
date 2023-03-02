@@ -1,0 +1,2670 @@
+fileFormatVersion: 2
+guid: f4fcb7c9f0bd94f24a3884506a111971
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2220453459154498939
+    second: dungeon_tile_4_rewrite_0
+  - first:
+      213: -1747445911846048968
+    second: dungeon_tile_4_rewrite_1
+  - first:
+      213: 6613342116038050694
+    second: dungeon_tile_4_rewrite_2
+  - first:
+      213: 8638909237025521227
+    second: dungeon_tile_4_rewrite_3
+  - first:
+      213: 4346509046743132102
+    second: dungeon_tile_4_rewrite_4
+  - first:
+      213: 272750044920499622
+    second: dungeon_tile_4_rewrite_5
+  - first:
+      213: -2974440036230172010
+    second: dungeon_tile_4_rewrite_6
+  - first:
+      213: -259356581831972916
+    second: dungeon_tile_4_rewrite_7
+  - first:
+      213: 7120767762268984641
+    second: dungeon_tile_4_rewrite_8
+  - first:
+      213: -3996081353693054796
+    second: dungeon_tile_4_rewrite_9
+  - first:
+      213: -4091909411892925651
+    second: dungeon_tile_4_rewrite_10
+  - first:
+      213: 8638942276901051803
+    second: dungeon_tile_4_rewrite_11
+  - first:
+      213: 7877074835070840601
+    second: dungeon_tile_4_rewrite_12
+  - first:
+      213: 94914386282730853
+    second: dungeon_tile_4_rewrite_13
+  - first:
+      213: -5240142243796909249
+    second: dungeon_tile_4_rewrite_14
+  - first:
+      213: -6655092112559104454
+    second: dungeon_tile_4_rewrite_15
+  - first:
+      213: 3399727490094280762
+    second: dungeon_tile_4_rewrite_16
+  - first:
+      213: 1424209461907902809
+    second: dungeon_tile_4_rewrite_17
+  - first:
+      213: -5228110588255091743
+    second: dungeon_tile_4_rewrite_18
+  - first:
+      213: -9195991038174286864
+    second: dungeon_tile_4_rewrite_19
+  - first:
+      213: 4040715250607639670
+    second: dungeon_tile_4_rewrite_20
+  - first:
+      213: 2598834148399104812
+    second: dungeon_tile_4_rewrite_21
+  - first:
+      213: 8349355223952390059
+    second: dungeon_tile_4_rewrite_22
+  - first:
+      213: 7705413009883326899
+    second: dungeon_tile_4_rewrite_23
+  - first:
+      213: 1526534290248548157
+    second: dungeon_tile_4_rewrite_24
+  - first:
+      213: -4129233880876666676
+    second: dungeon_tile_4_rewrite_25
+  - first:
+      213: 8201324889479473604
+    second: dungeon_tile_4_rewrite_26
+  - first:
+      213: 8493948830679663545
+    second: dungeon_tile_4_rewrite_27
+  - first:
+      213: -483118563901313925
+    second: dungeon_tile_4_rewrite_28
+  - first:
+      213: -8646360069845250731
+    second: dungeon_tile_4_rewrite_29
+  - first:
+      213: 7145894216771630918
+    second: dungeon_tile_4_rewrite_30
+  - first:
+      213: -5334422196211623780
+    second: dungeon_tile_4_rewrite_31
+  - first:
+      213: 8100682913597430815
+    second: dungeon_tile_4_rewrite_32
+  - first:
+      213: 3870932894129669421
+    second: dungeon_tile_4_rewrite_33
+  - first:
+      213: 8453691257367245224
+    second: dungeon_tile_4_rewrite_34
+  - first:
+      213: -5821174772239789570
+    second: dungeon_tile_4_rewrite_35
+  - first:
+      213: 3990885250505353948
+    second: dungeon_tile_4_rewrite_36
+  - first:
+      213: 3374924433029225079
+    second: dungeon_tile_4_rewrite_37
+  - first:
+      213: 4997911752038721659
+    second: dungeon_tile_4_rewrite_38
+  - first:
+      213: -5803489499584094797
+    second: dungeon_tile_4_rewrite_39
+  - first:
+      213: 573618287800532645
+    second: dungeon_tile_4_rewrite_40
+  - first:
+      213: 5986405771916669602
+    second: dungeon_tile_4_rewrite_41
+  - first:
+      213: 7049715496136663492
+    second: dungeon_tile_4_rewrite_42
+  - first:
+      213: 8230112651329150708
+    second: dungeon_tile_4_rewrite_43
+  - first:
+      213: 3897177659971610031
+    second: dungeon_tile_4_rewrite_44
+  - first:
+      213: 6910118966907577074
+    second: dungeon_tile_4_rewrite_45
+  - first:
+      213: -5810239023682342346
+    second: dungeon_tile_4_rewrite_46
+  - first:
+      213: 8445142456899932839
+    second: dungeon_tile_4_rewrite_47
+  - first:
+      213: 7152304656049116820
+    second: dungeon_tile_4_rewrite_48
+  - first:
+      213: 2576273416974796326
+    second: dungeon_tile_4_rewrite_49
+  - first:
+      213: -8287492072660135921
+    second: dungeon_tile_4_rewrite_50
+  - first:
+      213: -4913727687719521575
+    second: dungeon_tile_4_rewrite_51
+  - first:
+      213: 6845281971334040300
+    second: dungeon_tile_4_rewrite_52
+  - first:
+      213: 1107116228745434613
+    second: dungeon_tile_4_rewrite_53
+  - first:
+      213: 2763114565403368517
+    second: dungeon_tile_4_rewrite_54
+  - first:
+      213: -5596203129728108959
+    second: dungeon_tile_4_rewrite_55
+  - first:
+      213: -6171031879345973624
+    second: dungeon_tile_4_rewrite_56
+  - first:
+      213: -5419096539485177868
+    second: dungeon_tile_4_rewrite_57
+  - first:
+      213: 3616151543094042162
+    second: dungeon_tile_4_rewrite_58
+  - first:
+      213: 2740849111259603325
+    second: dungeon_tile_4_rewrite_59
+  - first:
+      213: -9062032119791623177
+    second: dungeon_tile_4_rewrite_60
+  - first:
+      213: -8587360260245466897
+    second: dungeon_tile_4_rewrite_61
+  - first:
+      213: -3156965298504280060
+    second: dungeon_tile_4_rewrite_62
+  - first:
+      213: -7157989892486618233
+    second: dungeon_tile_4_rewrite_63
+  - first:
+      213: -5899022344193972584
+    second: dungeon_tile_4_rewrite_64
+  - first:
+      213: 8368377373406258836
+    second: dungeon_tile_4_rewrite_65
+  - first:
+      213: -462320438173616869
+    second: dungeon_tile_4_rewrite_66
+  - first:
+      213: -2293491200674937960
+    second: dungeon_tile_4_rewrite_67
+  - first:
+      213: -7822223965502278022
+    second: dungeon_tile_4_rewrite_68
+  - first:
+      213: 7600777034183432313
+    second: dungeon_tile_4_rewrite_69
+  - first:
+      213: 7966725392430142038
+    second: dungeon_tile_4_rewrite_70
+  - first:
+      213: -2459503475411933344
+    second: dungeon_tile_4_rewrite_71
+  - first:
+      213: -7300523474948453481
+    second: dungeon_tile_4_rewrite_72
+  - first:
+      213: -77883819005976747
+    second: dungeon_tile_4_rewrite_73
+  - first:
+      213: -8538171833578607008
+    second: dungeon_tile_4_rewrite_74
+  - first:
+      213: -6366966099431750831
+    second: dungeon_tile_4_rewrite_75
+  - first:
+      213: 6430438123049347576
+    second: dungeon_tile_4_rewrite_76
+  - first:
+      213: -5131976174718596886
+    second: dungeon_tile_4_rewrite_77
+  - first:
+      213: 7437275821075510786
+    second: dungeon_tile_4_rewrite_78
+  - first:
+      213: 1169090925003508850
+    second: dungeon_tile_4_rewrite_79
+  - first:
+      213: 3530705835725219936
+    second: dungeon_tile_4_rewrite_80
+  - first:
+      213: 4966588626900693601
+    second: dungeon_tile_4_rewrite_81
+  - first:
+      213: -8440360419152971616
+    second: dungeon_tile_4_rewrite_82
+  - first:
+      213: 2077203040214183044
+    second: dungeon_tile_4_rewrite_83
+  - first:
+      213: 4265973365526594458
+    second: dungeon_tile_4_rewrite_84
+  - first:
+      213: -4453432240459801932
+    second: dungeon_tile_4_rewrite_85
+  - first:
+      213: -2993275921035197822
+    second: dungeon_tile_4_rewrite_86
+  - first:
+      213: -823523253589078958
+    second: dungeon_tile_4_rewrite_87
+  - first:
+      213: -4186690234988535032
+    second: dungeon_tile_4_rewrite_88
+  - first:
+      213: 8640629544321943876
+    second: dungeon_tile_4_rewrite_89
+  - first:
+      213: 3941284704270946747
+    second: dungeon_tile_4_rewrite_90
+  - first:
+      213: -8412485876975200806
+    second: dungeon_tile_4_rewrite_91
+  - first:
+      213: -6374602711577593381
+    second: dungeon_tile_4_rewrite_92
+  - first:
+      213: -943777623834669777
+    second: dungeon_tile_4_rewrite_93
+  - first:
+      213: -6853246799711202642
+    second: dungeon_tile_4_rewrite_94
+  - first:
+      213: -9024441339792050490
+    second: dungeon_tile_4_rewrite_95
+  - first:
+      213: 7627890815924937026
+    second: dungeon_tile_4_rewrite_96
+  - first:
+      213: -5389092234393856327
+    second: dungeon_tile_4_rewrite_97
+  - first:
+      213: -5104130247705834767
+    second: dungeon_tile_4_rewrite_98
+  - first:
+      213: 8057679015605872510
+    second: dungeon_tile_4_rewrite_99
+  - first:
+      213: -72433114940081312
+    second: dungeon_tile_4_rewrite_100
+  - first:
+      213: 7981259764088315653
+    second: dungeon_tile_4_rewrite_101
+  - first:
+      213: -1132854276050687018
+    second: dungeon_tile_4_rewrite_102
+  - first:
+      213: 5220906141588310909
+    second: dungeon_tile_4_rewrite_103
+  - first:
+      213: -1179456321191231625
+    second: dungeon_tile_4_rewrite_104
+  - first:
+      213: 7911245592079309714
+    second: dungeon_tile_4_rewrite_105
+  - first:
+      213: -5840041067316012787
+    second: dungeon_tile_4_rewrite_106
+  - first:
+      213: -6528488895900348989
+    second: dungeon_tile_4_rewrite_107
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_0
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 189
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58a0fc6e75d5f21e0800000000000000
+      internalID: -2220453459154498939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_1
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 189
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83b25389333dfb7e0800000000000000
+      internalID: -1747445911846048968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 189
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68304949d9f47cb50800000000000000
+      internalID: 6613342116038050694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 189
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4e3fbf1e2293e770800000000000000
+      internalID: 8638909237025521227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_4
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 189
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c7652003f6e15c30800000000000000
+      internalID: 4346509046743132102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_5
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 189
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ad45f388b009c300800000000000000
+      internalID: 272750044920499622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_6
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 189
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 692fccadb8aa8b6d0800000000000000
+      internalID: -2974440036230172010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 189
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc7eebd1094966cf0800000000000000
+      internalID: -259356581831972916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_8
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 189
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14598166d8c02d260800000000000000
+      internalID: 7120767762268984641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 189
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b830935e211b88c0800000000000000
+      internalID: -3996081353693054796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_10
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 189
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2b6b0bd11e9637c0800000000000000
+      internalID: -4091909411892925651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_11
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 189
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9d9ac1da30b3e770800000000000000
+      internalID: 8638942276901051803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_12
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 173
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91fe095f3ddf05d60800000000000000
+      internalID: 7877074835070840601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 173
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 565d476a124315100800000000000000
+      internalID: 94914386282730853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_14
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 173
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3387f984664747b0800000000000000
+      internalID: -5240142243796909249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_15
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 173
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3e196bdbfc54a3a0800000000000000
+      internalID: -6655092112559104454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_16
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 173
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a303334c3224e2f20800000000000000
+      internalID: 3399727490094280762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_17
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 173
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95155c6b5fec3c310800000000000000
+      internalID: 1424209461907902809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_18
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 173
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e3c894ae150277b0800000000000000
+      internalID: -5228110588255091743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_19
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 173
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fb22fb8fd6416080800000000000000
+      internalID: -9195991038174286864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_20
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 173
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67cc8fe9c11831830800000000000000
+      internalID: 4040715250607639670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_21
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 173
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c23cb7583e9e01420800000000000000
+      internalID: 2598834148399104812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_22
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 173
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba7fb33e65eded370800000000000000
+      internalID: 8349355223952390059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_23
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 173
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b9e4c5be402fea60800000000000000
+      internalID: 7705413009883326899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_24
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 173
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3fb7bb59d65f2510800000000000000
+      internalID: 1526534290248548157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_25
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 157
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc0b6d7b9a302b6c0800000000000000
+      internalID: -4129233880876666676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_26
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 157
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c96ef4d885f0d170800000000000000
+      internalID: 8201324889479473604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_27
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 157
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b38109657190e570800000000000000
+      internalID: 8493948830679663545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_28
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 157
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7ce34ec93e9b49f0800000000000000
+      internalID: -483118563901313925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_29
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 157
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55d80cca355f10880800000000000000
+      internalID: -8646360069845250731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_30
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 157
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 647f039fde05b2360800000000000000
+      internalID: 7145894216771630918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_31
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 157
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c98d8d8864358f5b0800000000000000
+      internalID: -5334422196211623780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_32
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 157
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1c1d0fc0386b6070800000000000000
+      internalID: 8100682913597430815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_33
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 157
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2549f745f058b530800000000000000
+      internalID: 3870932894129669421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_34
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 157
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a13334b86b815570800000000000000
+      internalID: 8453691257367245224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_35
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 157
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef19e25f268073fa0800000000000000
+      internalID: -5821174772239789570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_36
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 157
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdaa7bf9df8726730800000000000000
+      internalID: 3990885250505353948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_37
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 157
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77a5e7604e326de20800000000000000
+      internalID: 3374924433029225079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_38
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 141
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b78a40722462c5540800000000000000
+      internalID: 4997911752038721659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_39
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 141
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bd949f5c0dd57fa0800000000000000
+      internalID: -5803489499584094797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_40
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 141
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aeb4092bc6e5f700800000000000000
+      internalID: 573618287800532645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_41
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 141
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a2f07c055cf31350800000000000000
+      internalID: 5986405771916669602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_42
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 141
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c1eaca84ee95d160800000000000000
+      internalID: 7049715496136663492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_43
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 141
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fe1ce3f9db373270800000000000000
+      internalID: 8230112651329150708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_44
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 141
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa522310f6e851630800000000000000
+      internalID: 3897177659971610031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_45
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 141
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f2273ac69ca5ef50800000000000000
+      internalID: 6910118966907577074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_46
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 141
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6323d455462ed5fa0800000000000000
+      internalID: -5810239023682342346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_47
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 141
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a2171df15c233570800000000000000
+      internalID: 8445142456899932839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_48
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 141
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4961e2da037124360800000000000000
+      internalID: 7152304656049116820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_49
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 141
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6268017e503c0c320800000000000000
+      internalID: 2576273416974796326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_50
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 141
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f001a327ed9ecfc80800000000000000
+      internalID: -8287492072660135921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_51
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 141
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d2f97ab3beeecbb0800000000000000
+      internalID: -4913727687719521575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_52
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 141
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cea40c06fa35ffe50800000000000000
+      internalID: 6845281971334040300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_53
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 125
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f5117328544d5f00800000000000000
+      internalID: 1107116228745434613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_54
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 125
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c5390ce0e885620800000000000000
+      internalID: 2763114565403368517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_55
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 125
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16670a947ea4652b0800000000000000
+      internalID: -5596203129728108959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_56
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 125
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 886d8f583371c5aa0800000000000000
+      internalID: -6171031879345973624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_57
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 125
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f7ff60b8608bc4b0800000000000000
+      internalID: -5419096539485177868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_58
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 109
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23ed9145ba62f2230800000000000000
+      internalID: 3616151543094042162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_59
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 109
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d71e29bbeb3790620800000000000000
+      internalID: 2740849111259603325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_60
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 109
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f3e3acbcc13d3280800000000000000
+      internalID: -9062032119791623177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_61
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 109
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe053c1575193d880800000000000000
+      internalID: -8587360260245466897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_62
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 109
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 408da6e89c43034d0800000000000000
+      internalID: -3156965298504280060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_63
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 93
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 783af701e16b9ac90800000000000000
+      internalID: -7157989892486618233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_64
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 93
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 896e93cae66722ea0800000000000000
+      internalID: -5899022344193972584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_65
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 93
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 496eb4032e2722470800000000000000
+      internalID: 8368377373406258836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_66
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 93
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b15324ec2028599f0800000000000000
+      internalID: -462320438173616869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_67
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 93
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 893494887e1eb20e0800000000000000
+      internalID: -2293491200674937960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_68
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 93
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7670be4fb0e17390800000000000000
+      internalID: -7822223965502278022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_69
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 93
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 978537321726b7960800000000000000
+      internalID: 7600777034183432313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_70
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 93
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65212eee88e7f8e60800000000000000
+      internalID: 7966725392430142038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_71
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 93
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 067ab30ce961eddd0800000000000000
+      internalID: -2459503475411933344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_72
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 93
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79b0c4154945faa90800000000000000
+      internalID: -7300523474948453481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_73
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 93
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55fd56a441d4beef0800000000000000
+      internalID: -77883819005976747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_74
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 93
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e2d4c54f1528980800000000000000
+      internalID: -8538171833578607008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_75
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 93
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1538a62f01ef3a7a0800000000000000
+      internalID: -6366966099431750831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_76
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 93
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f96c7a27618d3950800000000000000
+      internalID: 6430438123049347576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_77
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 93
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae841260cde87c8b0800000000000000
+      internalID: -5131976174718596886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_78
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 77
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 206bec374f2863760800000000000000
+      internalID: 7437275821075510786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_79
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 77
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27c87fe8002793010800000000000000
+      internalID: 1169090925003508850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_80
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 77
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 068ecc840469ff030800000000000000
+      internalID: 3530705835725219936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_81
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 77
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16239e3ca0edce440800000000000000
+      internalID: 4966588626900693601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_82
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 77
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a8be10fae0ddda80800000000000000
+      internalID: -8440360419152971616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_83
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 77
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48ce35ad825b3dc10800000000000000
+      internalID: 2077203040214183044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_84
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 77
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a938d718c28c33b30800000000000000
+      internalID: 4265973365526594458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_85
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 77
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ba1f1cf8fa3232c0800000000000000
+      internalID: -4453432240459801932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_86
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 77
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28287fba86fb576d0800000000000000
+      internalID: -2993275921035197822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_87
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 77
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25c8c8dc6f14294f0800000000000000
+      internalID: -823523253589078958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_88
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 77
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80369eec963e5e5c0800000000000000
+      internalID: -4186690234988535032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_89
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 77
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4490e016acea9e770800000000000000
+      internalID: 8640629544321943876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_90
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 61
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb110c48e8142b630800000000000000
+      internalID: 3941284704270946747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_91
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 61
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad517e88aa8d04b80800000000000000
+      internalID: -8412485876975200806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_92
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 45
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd9fc20ab9cd887a0800000000000000
+      internalID: -6374602711577593381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_93
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 45
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2d4f50604707e2f0800000000000000
+      internalID: -943777623834669777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_94
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 45
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea29121885064e0a0800000000000000
+      internalID: -6853246799711202642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_95
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 45
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c6385d3a6eb2c280800000000000000
+      internalID: -9024441339792050490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_96
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 45
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 241aba46846bbd960800000000000000
+      internalID: 7627890815924937026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_97
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 45
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b6532b5a291635b0800000000000000
+      internalID: -5389092234393856327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_98
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 45
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1faca22259c7a29b0800000000000000
+      internalID: -5104130247705834767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_99
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 29
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e77ae4f8f50a2df60800000000000000
+      internalID: 8057679015605872510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_100
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 29
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06b750a377aaefef0800000000000000
+      internalID: -72433114940081312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_101
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 29
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50f1a9a087123ce60800000000000000
+      internalID: 7981259764088315653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_102
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 29
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6db67bdb90b4740f0800000000000000
+      internalID: -1132854276050687018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_103
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 29
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7bc6076972647840800000000000000
+      internalID: 5220906141588310909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_104
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 29
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77fbe4399bab1afe0800000000000000
+      internalID: -1179456321191231625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tile_4_rewrite_105
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 29
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29b13ce43f36acd60800000000000000
+      internalID: 7911245592079309714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
