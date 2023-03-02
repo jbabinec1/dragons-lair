@@ -10,6 +10,8 @@ public class CharacterMovement : MonoBehaviour
     private PolyNavAgent _agent;
     private bool isMoving;
 
+    //Test 123
+
     private void Start()
     {
         _agent = GetComponent<PolyNavAgent>();
