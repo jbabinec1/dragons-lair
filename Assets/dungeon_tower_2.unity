@@ -667,6 +667,7 @@ GameObject:
   - component: {fileID: 1181930829}
   - component: {fileID: 1181930831}
   - component: {fileID: 1181930830}
+  - component: {fileID: 1181930832}
   m_Layer: 0
   m_Name: floor
   m_TagString: Untagged
@@ -1922,6 +1923,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1181930832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181930828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d199aaaee4f429580f1629820a1af1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 1181930831}
+  unwalkableTiles: []
 --- !u!1 &1546896039
 GameObject:
   m_ObjectHideFlags: 0
