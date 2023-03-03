@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/TilemapPathfinding.cs">
     <Files>
       <File FileName="Assets/Scripts/CharacterMovement.cs" Line="39" Column="29" />
-      <File FileName="Assets/TilemapPathfinding.cs" Line="9" Column="1" />
+      <File FileName="Assets/TilemapPathfinding.cs" Line="81" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,9 +12,8 @@
               <Node name="ParadoxNotion" expanded="True">
                 <Node name="PolyNav2D" expanded="True" />
               </Node>
-              <Node name="Scripts" expanded="True">
-                <Node name="CharacterMovement.cs" selected="True" />
-              </Node>
+              <Node name="Scripts" expanded="True" />
+              <Node name="TilemapPathfinding.cs" selected="True" />
             </Node>
           </Node>
         </State>

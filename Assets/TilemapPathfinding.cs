@@ -25,12 +25,15 @@ public class Node
 public class TilemapPathfinding : MonoBehaviour
 {
     public Tilemap tilemap;
-    public TileBase[] unwalkableTiles;
+    //public TileBase[] unwalkableTiles;
+    public Tilemap[] unwalkableTiles;
 
     private Dictionary<Vector3Int, Node> nodes = new Dictionary<Vector3Int, Node>();
 
     private void Awake()
     {
+        Debug.Log("Starting Tilemap Pathfinding...");
+
         // Iterate over all tiles in the tilemap
         foreach (var pos in tilemap.cellBounds.allPositionsWithin)
         {
@@ -51,6 +54,7 @@ public class TilemapPathfinding : MonoBehaviour
 
             // Add a new node to the dictionary
             var worldPlace = tilemap.CellToWorld(localPlace);
+            Debug.Log($"Adding node at {localPlace} ({worldPlace})");
             nodes.Add(localPlace, new Node(worldPlace));
         }
 
@@ -61,10 +65,20 @@ public class TilemapPathfinding : MonoBehaviour
 
             foreach (var neighbor in neighbors)
             {
-                node.Value.neighbors.Add(nodes[neighbor]);
+                if (nodes.TryGetValue(neighbor, out var neighborNode))
+                {
+                    node.Value.AddNeighbor(neighborNode);
+                }
+                else
+                {
+                    Debug.LogWarning($"Neighbor {neighbor} not found in dictionary");
+                }
             }
         }
+
+        Debug.Log("Tilemap Pathfinding initialization complete");
     }
+
 
     private List<Vector3Int> GetNeighbors(Vector3Int position)
     {
