@@ -40,55 +40,6 @@ public class MapManager : MonoBehaviour
 
 
 
-    //[Command]
-    public void CmdSpawnTiles()
-    {
-        var tileMap = gameObject.GetComponentInChildren<Tilemap>();
-
-        map = new Dictionary<Vector2Int, OverlayTile>();
-
-        BoundsInt bounds = tileMap.cellBounds;
-
-        //Looping through all tiles
-        for (int z = bounds.max.z; z >= bounds.min.z; z--)
-        {
-            for (int y = bounds.min.y; y < bounds.max.y; y++)
-            {
-                for (int x = bounds.min.x; x < bounds.max.x; x++)
-                {
-
-                    var tileLocation = new Vector3Int(x, y, z);
-                    var tileKey = new Vector2Int(x, y);
-
-                    if (tileMap.HasTile(tileLocation) && !map.ContainsKey(tileKey))
-                    {
-                        var overlayTile = Instantiate(overlayTilez, overlayContainer.transform);
-                        //var overlayTile = Instantiate(overlayTilePrefab, overlayContainer.transform);
-
-                        //NetworkServer.Spawn(overlayTile);
-
-
-
-                        var cellWorldLocation = tileMap.GetCellCenterWorld(tileLocation);
-
-                        overlayTile.transform.position = new Vector3(cellWorldLocation.x, cellWorldLocation.y, cellWorldLocation.z + 1);
-
-                        overlayTile.GetComponent<SpriteRenderer>().sortingOrder = 10;//                                                                      //tileMap.GetComponent<TilemapRenderer>().sortingOrder;
-
-                        var tileProps = overlayTile.GetComponent<OverlayTile>(); //using this for now because overlayTile as a gameobject doesn't have gridLocation property
-
-                        tileProps.gridLocation = tileLocation;
-                        map.Add(tileKey, tileProps);
-                        //overlayTile.gridLocation = tileLocation;
-                        //map.Add(tileKey, overlayTile);
-                    }
-                }
-            }
-
-        }
-    }
-
-
     //Spawning tiles just on client side
     public void SpawnTiles()
     {
@@ -112,15 +63,14 @@ public class MapManager : MonoBehaviour
                     if (tileMap.HasTile(tileLocation) && !map.ContainsKey(tileKey))
                     {
                         var overlayTile = Instantiate(overlayTilePrefab, overlayContainer.transform);
-                        //CmdSpawnTiles();
-
+                        
                         var cellWorldLocation = tileMap.GetCellCenterWorld(tileLocation);
 
                         overlayTile.transform.position = new Vector3(cellWorldLocation.x, cellWorldLocation.y, cellWorldLocation.z + 1);
 
-                        // overlayTile.poop = overlayTile.transform.position;  //MAYBE??
 
-                        overlayTile.GetComponent<SpriteRenderer>().sortingOrder = 10;//tileMap.GetComponent<TilemapRenderer>().sortingOrder;
+                        tileMap.GetComponent<TilemapRenderer>().sortingOrder = tileMap.GetComponent<TilemapRenderer>().sortingOrder;
+
                         overlayTile.gridLocation = tileLocation;
                         map.Add(tileKey, overlayTile);
                     }
