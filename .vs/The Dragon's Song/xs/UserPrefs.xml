@@ -1,19 +1,20 @@
-﻿<Properties StartupConfiguration="{A60DB43C-1BBD-D5B8-A04F-B27DC6645535}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MapManager.cs">
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MouseController.cs">
     <Files>
-      <File FileName="Assets/Scripts/MouseController.cs" Line="16" Column="5" />
-      <File FileName="Assets/MapManager.cs" Line="75" Column="23" />
+      <File FileName="Assets/Scripts/MouseController.cs" Line="71" Column="22" />
+      <File FileName="Assets/Scripts/Pathfinder.cs" Line="24" Column="1" />
+      <File FileName="Assets/Scripts/CharacterInfo.cs" Line="5" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="The Dragon's Song" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="ParadoxNotion" expanded="True">
-                <Node name="PolyNav2D" expanded="True" />
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Assets" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="MouseController.cs" selected="True" />
+                </Node>
               </Node>
-              <Node name="Scripts" expanded="True" />
-              <Node name="MapManager.cs" selected="True" />
             </Node>
           </Node>
         </State>
