@@ -83,11 +83,11 @@ public class MouseController : MonoBehaviour
         {
             MoveAlongPath();
 
-           // isMoving = true;
+        /*    isMoving = true;
 
-         /*   if (isMoving)
+            if (isMoving)
             {
-                animator.SetBool("isWalking", true);
+                character.animator.SetBool("isWalking", true);
             }
             else
             {
@@ -97,7 +97,7 @@ public class MouseController : MonoBehaviour
         else
         {
             animator.SetBool("isWalking", false);
-        } */
+        }*/
 
     }
         
