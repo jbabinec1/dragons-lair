@@ -7,6 +7,7 @@ public class MouseController : MonoBehaviour
 {
     public GameObject characterPrefab;
     private CharacterInfo character;
+    public Animator characterAnimationSprite;
 
     private Pathfinder pathfinder;
 
@@ -25,6 +26,7 @@ public class MouseController : MonoBehaviour
         pathfinder = new Pathfinder();
         
         character = GameObject.Find("dragon_child").GetComponent<CharacterInfo>();
+        characterAnimationSprite = GameObject.Find("dragon_child").GetComponent<Animator>();
     }
 
 
@@ -79,27 +81,26 @@ public class MouseController : MonoBehaviour
 
         }
 
-        if(path != null && path.Count > 0)
+        if (path != null && path.Count > 0)
         {
-            MoveAlongPath();
+           // MoveAlongPath();
 
-        /*    isMoving = true;
+            isMoving = true;
 
             if (isMoving)
             {
-                character.animator.SetBool("isWalking", true);
+                characterAnimationSprite.SetBool("isWalking", true);
+                MoveAlongPath();
             }
-            else
-            {
-                animator.SetBool("isWalking", false);
-            }
-        }
-        else
-        {
-            animator.SetBool("isWalking", false);
-        }*/
 
-    }
+        } else
+        {
+            characterAnimationSprite.SetBool("isWalking", false);
+            isMoving = false;
+
+        }
+
+ 
         
     }
 
