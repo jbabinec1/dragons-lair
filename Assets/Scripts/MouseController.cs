@@ -36,6 +36,8 @@ public class MouseController : MonoBehaviour
 
         var focusedOnTileFromPlayer = GetFocusedOnTileFromPlayer();
 
+        var isMoving = false;
+
         if (focusedOnTileFromPlayer.HasValue)
         {
             
@@ -80,8 +82,24 @@ public class MouseController : MonoBehaviour
         if(path != null && path.Count > 0)
         {
             MoveAlongPath();
-            
+
+           // isMoving = true;
+
+         /*   if (isMoving)
+            {
+                animator.SetBool("isWalking", true);
+            }
+            else
+            {
+                animator.SetBool("isWalking", false);
+            }
         }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        } */
+
+    }
         
     }
 
