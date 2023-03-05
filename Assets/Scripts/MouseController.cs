@@ -40,6 +40,9 @@ public class MouseController : MonoBehaviour
 
         var isMoving = false;
 
+        characterAnimationSprite.SetBool("isWalking", false);
+        
+
         if (focusedOnTileFromPlayer.HasValue)
         {
             
@@ -83,8 +86,7 @@ public class MouseController : MonoBehaviour
 
         if (path != null && path.Count > 0)
         {
-           // MoveAlongPath();
-
+           
             isMoving = true;
 
             if (isMoving)
@@ -93,14 +95,7 @@ public class MouseController : MonoBehaviour
                 MoveAlongPath();
             }
 
-        } else
-        {
-            characterAnimationSprite.SetBool("isWalking", false);
-            isMoving = false;
-
-        }
-
- 
+        } 
         
     }
 
@@ -146,7 +141,8 @@ public class MouseController : MonoBehaviour
 
         character.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, zIndex);
 
-        if(Vector2.Distance(character.transform.position, path[0].transform.position) < 0.0001f)
+        //if(Vector2.Distance(character.transform.position, path[0].transform.position) < 0.0001f)
+        if ((character.transform.position - path[0].transform.position).magnitude < 0.0001f)
         {
             PositionCharacterOnTile(path[0]);
             path.RemoveAt(0);
