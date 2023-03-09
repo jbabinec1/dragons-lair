@@ -31,21 +31,16 @@ public class MouseController : MonoBehaviour
 
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-
         var focusedTileHit = GetFocusedOnTile();
 
         var focusedOnTileFromPlayer = GetFocusedOnTileFromPlayer();
 
         var isMoving = false;
 
-        characterAnimationSprite.SetBool("isWalking", false);
-        
-
         if (focusedOnTileFromPlayer.HasValue)
         {
-            
             character.startingTile = focusedOnTileFromPlayer.Value.collider.gameObject.GetComponent<OverlayTile>();
 
         }
@@ -70,23 +65,17 @@ public class MouseController : MonoBehaviour
                         character.activeTile = character.startingTile;
 
                     }
-
-                    else
+                    else if (character.activeTile != overlayTile) // add this condition
                     {
                         path = pathfinder.FindPath(character.activeTile, overlayTile);
-
+                        character.activeTile = overlayTile;
                     }
-
                 }
-
-            } 
-
-
+            }
         }
 
         if (path != null && path.Count > 0)
         {
-           
             isMoving = true;
 
             if (isMoving)
@@ -94,10 +83,14 @@ public class MouseController : MonoBehaviour
                 characterAnimationSprite.SetBool("isWalking", true);
                 MoveAlongPath();
             }
-
-        } 
-        
+        }
+        else
+        {
+            characterAnimationSprite.SetBool("isWalking", false);
+            isMoving = false;
+        }
     }
+
 
     public RaycastHit2D? GetFocusedOnTile()
     {
