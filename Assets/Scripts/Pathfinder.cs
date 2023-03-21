@@ -19,7 +19,6 @@ public class Pathfinder
 
         while (openList.Count > 0)
         {
-            Debug.Log(openList.Count);
 
             OverlayTile currentOverlayTile = openList.OrderBy(x => x.F).First();
 
