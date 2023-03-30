@@ -65,7 +65,7 @@ public class MouseController : MonoBehaviour
                         character.activeTile = character.startingTile;
 
                     }
-                    else if (character.activeTile != overlayTile) // add this condition
+                    else if (character.activeTile != overlayTile)
                     {
                         path = pathfinder.FindPath(character.activeTile, overlayTile);
                         character.activeTile = overlayTile;
@@ -104,6 +104,7 @@ public class MouseController : MonoBehaviour
             return hits.OrderByDescending(i => i.collider.transform.position.z).First();
         }
 
+
         return null;
     }
 
@@ -136,10 +137,26 @@ public class MouseController : MonoBehaviour
 
         //if(Vector2.Distance(character.transform.position, path[0].transform.position) < 0.0001f)
         if ((character.transform.position - path[0].transform.position).magnitude < 0.0001f)
-        {
+        {         
             PositionCharacterOnTile(path[0]);
             path.RemoveAt(0);
-        }
+
+            if(path.Count == 0 ) {
+                // GameManager gameManager = FindObjectOfType<GameManager>();
+                character.turnsTaken++;
+            }
+            else {
+                character.stepsTaken++;
+            }
+
+            //Turns vs Steps.. Turns are the total number of times the character reached destination. Steps is the total amount of steps taken.
+
+
+            //character.stepsTaken = 0;
+            //character.turnsTaken++;
+
+        } 
+       
 
     }
 

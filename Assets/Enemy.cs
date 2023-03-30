@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
         // If the player is visible, initiate combat
         if (isPlayerVisible)
         {
-            InitiateCombat();
+           // InitiateCombat();
         }
     }
 
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
         {
             if (hit.collider != null && hit.collider.gameObject.tag == "Player" && !hit.collider.isTrigger)
             {
-                Debug.Log("Hit collider tag: " + hit.collider.tag);
+                //Debug.Log("Hit collider tag: " + hit.collider.tag);
                 // The player is visible
                 isPlayerVisible = true;
                 break;
