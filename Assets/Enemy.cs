@@ -18,13 +18,16 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        GameManager gameManager = FindObjectOfType<GameManager>();
+
         // Check if the player is visible
         CheckForPlayer();
 
-        // If the player is visible, initiate combat
-        if (isPlayerVisible)
+        // If the player is visible and is enemy turn, initiate combat
+        if (isPlayerVisible && gameManager.isEnemyTurn == true)
         {
-           // InitiateCombat();
+            InitiateCombat();
+            gameManager.EndTurn();
         }
     }
 

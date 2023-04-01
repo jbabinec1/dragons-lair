@@ -644,7 +644,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1adf7d853e21c9342880f9f38d901ef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnNumber: 0
+  isPlayerTurn: 1
+  isEnemyTurn: 0
 --- !u!4 &658348323
 Transform:
   m_ObjectHideFlags: 0
@@ -4690,11 +4691,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5441052456963436117, guid: dec9d85fe7840b842a9e792b0d909298, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.26
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 5441052456963436117, guid: dec9d85fe7840b842a9e792b0d909298, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.06
+      value: -3.02
       objectReference: {fileID: 0}
     - target: {fileID: 5441052456963436117, guid: dec9d85fe7840b842a9e792b0d909298, type: 3}
       propertyPath: m_LocalPosition.z

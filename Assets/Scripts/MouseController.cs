@@ -33,6 +33,8 @@ public class MouseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameManager gameManager = FindObjectOfType<GameManager>();
+
         var focusedTileHit = GetFocusedOnTile();
 
         var focusedOnTileFromPlayer = GetFocusedOnTileFromPlayer();
@@ -53,7 +55,7 @@ public class MouseController : MonoBehaviour
             {
                 transform.position = overlayTile.transform.position;
                 gameObject.GetComponent<SpriteRenderer>().sortingOrder = overlayTile.GetComponent<SpriteRenderer>().sortingOrder;
-                if (Input.GetMouseButtonDown(0) && overlayTile != null)
+                if (Input.GetMouseButtonDown(0) && overlayTile != null && gameManager.isPlayerTurn == true)
                 {
                     if (character.activeTile == null)
                     {
@@ -135,6 +137,8 @@ public class MouseController : MonoBehaviour
 
         character.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, zIndex);
 
+         GameManager gameManager = FindObjectOfType<GameManager>();
+
         //if(Vector2.Distance(character.transform.position, path[0].transform.position) < 0.0001f)
         if ((character.transform.position - path[0].transform.position).magnitude < 0.0001f)
         {         
@@ -142,8 +146,8 @@ public class MouseController : MonoBehaviour
             path.RemoveAt(0);
 
             if(path.Count == 0 ) {
-                // GameManager gameManager = FindObjectOfType<GameManager>();
                 character.turnsTaken++;
+                gameManager.EndTurn();
             }
             else {
                 character.stepsTaken++;
