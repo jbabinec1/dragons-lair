@@ -141,7 +141,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.015151203}
+  m_Offset: {x: 0, y: 0.005782604}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -152,7 +152,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1193142, y: 1.2746161}
+  m_Size: {x: 1.1193142, y: 1.1908054}
   m_EdgeRadius: 0
 --- !u!50 &15939981
 Rigidbody2D:
@@ -175,6 +175,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &15939982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15939979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c577e88495de34999ed0446fb8079b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visionAngle: 300
+  visionDistance: 10
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  enemy: {fileID: 0}
+  actionPoints: 40
+  nodesMoved: 0
+  startingTile: {fileID: 0}
+  activeTile: {fileID: 0}
 --- !u!1 &66064205
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,8 +666,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1adf7d853e21c9342880f9f38d901ef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnNumber: 1
   isPlayerTurn: 1
   isEnemyTurn: 0
+  enemy: {fileID: 15939979}
 --- !u!4 &658348323
 Transform:
   m_ObjectHideFlags: 0
@@ -4681,6 +4705,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy_idle_01
       objectReference: {fileID: 0}
+    - target: {fileID: 5441052456963436115, guid: dec9d85fe7840b842a9e792b0d909298, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5441052456963436116, guid: dec9d85fe7840b842a9e792b0d909298, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -4691,11 +4719,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5441052456963436117, guid: dec9d85fe7840b842a9e792b0d909298, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.05
+      value: 1.22
       objectReference: {fileID: 0}
     - target: {fileID: 5441052456963436117, guid: dec9d85fe7840b842a9e792b0d909298, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.02
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 5441052456963436117, guid: dec9d85fe7840b842a9e792b0d909298, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4741,5 +4769,6 @@ PrefabInstance:
       propertyPath: playerLayer.m_Bits
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8994362738826701024, guid: dec9d85fe7840b842a9e792b0d909298, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dec9d85fe7840b842a9e792b0d909298, type: 3}

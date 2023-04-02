@@ -4,9 +4,33 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private int turnNumber = 1;
+    public int turnNumber = 1;
     public bool isPlayerTurn = true;
     public bool isEnemyTurn = false;
+    public GameObject enemy;
+
+    public static OverlayTile enemyStartingTile;
+
+void Start() 
+{
+    enemy = GameObject.FindGameObjectWithTag("Enemy");
+
+    // ... code to find the enemy game object ...
+    Collider2D[] colliders = Physics2D.OverlapPointAll(enemy.transform.position);
+    foreach (Collider2D collider in colliders)
+    {
+        OverlayTile tile = collider.GetComponent<OverlayTile>();
+        if (tile != null)
+        {
+            Debug.Log("Enemy starting tile: " + enemyStartingTile);
+            enemyStartingTile = tile;
+            break;
+        }
+    }
+
+   // Debug.Log(enemyStartingTile);
+}
+
 
     // Other code for your GameManager goes here...
 
@@ -16,7 +40,6 @@ public class GameManager : MonoBehaviour
         {
             // Player turn is over, start the enemy turn
             isPlayerTurn = false;
-            isEnemyTurn = true;
             Debug.Log("End of Player Turn");
         }
         else
