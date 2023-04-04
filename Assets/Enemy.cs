@@ -48,7 +48,6 @@ public class Enemy : MonoBehaviour
           if (focusedOnTileFromPlayer.HasValue)
         {
             startingTile = focusedOnTileFromPlayer.Value.collider.gameObject.GetComponent<OverlayTile>();
-           // Debug.Log(startingTile);
 
         }
      //  if (focusedOnTileFromPlayer != null && focusedOnTileFromPlayer.HasValue) {
@@ -85,8 +84,8 @@ public class Enemy : MonoBehaviour
             gameManager.EndTurn();
         }
 
-       //} test
     }
+    
 
     public void MoveAlongPath()
     {
