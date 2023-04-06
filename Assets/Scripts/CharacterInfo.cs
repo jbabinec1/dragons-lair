@@ -10,6 +10,9 @@ public class CharacterInfo : MonoBehaviour
      public int stepsTaken;
      public int turnsTaken;
 
+     public float maxHealth = 1;
+     public float currentHealth = 1;
+
         void Start()
     {
       
