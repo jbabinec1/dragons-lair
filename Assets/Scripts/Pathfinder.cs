@@ -3,10 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+
 
 [Serializable]
 public class Pathfinder
 {
+
+    public Tilemap overlayTilemap;
+
 
     public List<OverlayTile> FindPath(OverlayTile start, OverlayTile end)
     {
@@ -51,7 +56,6 @@ public class Pathfinder
                 neighbor.previous = currentOverlayTile;
 
                 // neighbor.poop = currentOverlayTile.transform.position;
-
                 if (!openList.Contains(neighbor))
                 {
                     openList.Add(neighbor);
@@ -135,6 +139,83 @@ public class Pathfinder
 
         return neighbors;
     }
+
+
+
+
+public List<OverlayTile> GetAdjacentTiles(OverlayTile tile)
+{
+    List<OverlayTile> adjacentTiles = new List<OverlayTile>();
+
+    int x = (int)tile.transform.position.x;
+    int y = (int)tile.transform.position.y;
+
+    // Check the tile to the left
+    OverlayTile leftTile = GetTileAtPosition(x - 1, y);
+    if (leftTile != null)
+    {
+        adjacentTiles.Add(leftTile);
+    }
+
+    // Check the tile to the right
+    OverlayTile rightTile = GetTileAtPosition(x + 1, y);
+    if (rightTile != null)
+    {
+        adjacentTiles.Add(rightTile);
+    }
+
+    // Check the tile above
+    OverlayTile topTile = GetTileAtPosition(x, y + 1);
+    if (topTile != null)
+    {
+        adjacentTiles.Add(topTile);
+    }
+
+    // Check the tile below
+    OverlayTile bottomTile = GetTileAtPosition(x, y - 1);
+    if (bottomTile != null)
+    {
+        adjacentTiles.Add(bottomTile);
+    }
+
+    return adjacentTiles;
+}
+
+// Returns the cell position of the given world position
+private Vector3Int WorldToCellPosition(Vector3 worldPosition)
+{
+    return overlayTilemap.WorldToCell(worldPosition);
+}
+
+
+// Returns the tile at the given position
+private OverlayTile GetTileAtPosition(int x, int y)
+{
+    Vector3 worldPosition = new Vector3(x, y, 0);
+    Vector3Int cellPosition = WorldToCellPosition(worldPosition);
+    Vector3 cellCenterWorld = overlayTilemap.GetCellCenterWorld(cellPosition);
+
+    RaycastHit2D hit = Physics2D.Raycast(cellCenterWorld, Vector2.zero);
+
+    if (hit.collider != null)
+    {
+        OverlayTile tile = hit.collider.GetComponent<OverlayTile>();
+        if (tile != null)
+        {
+            return tile;
+        }
+    }
+
+    return null;
+}
+
+
+
+
+
+
+
+
 
 
 
