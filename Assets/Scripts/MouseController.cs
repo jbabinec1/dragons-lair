@@ -33,6 +33,8 @@ public class MouseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameManager gameManager = FindObjectOfType<GameManager>();
+
         var focusedTileHit = GetFocusedOnTile();
 
         var focusedOnTileFromPlayer = GetFocusedOnTileFromPlayer();
@@ -53,7 +55,7 @@ public class MouseController : MonoBehaviour
             {
                 transform.position = overlayTile.transform.position;
                 gameObject.GetComponent<SpriteRenderer>().sortingOrder = overlayTile.GetComponent<SpriteRenderer>().sortingOrder;
-                if (Input.GetMouseButtonDown(0) && overlayTile != null)
+                if (Input.GetMouseButtonDown(0) && overlayTile != null && gameManager.isPlayerTurn == true)
                 {
                     if (character.activeTile == null)
                     {
@@ -65,7 +67,7 @@ public class MouseController : MonoBehaviour
                         character.activeTile = character.startingTile;
 
                     }
-                    else if (character.activeTile != overlayTile) // add this condition
+                    else if (character.activeTile != overlayTile)
                     {
                         path = pathfinder.FindPath(character.activeTile, overlayTile);
                         character.activeTile = overlayTile;
@@ -104,6 +106,7 @@ public class MouseController : MonoBehaviour
             return hits.OrderByDescending(i => i.collider.transform.position.z).First();
         }
 
+
         return null;
     }
 
@@ -134,12 +137,30 @@ public class MouseController : MonoBehaviour
 
         character.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, zIndex);
 
+         GameManager gameManager = FindObjectOfType<GameManager>();
+
         //if(Vector2.Distance(character.transform.position, path[0].transform.position) < 0.0001f)
         if ((character.transform.position - path[0].transform.position).magnitude < 0.0001f)
-        {
+        {         
             PositionCharacterOnTile(path[0]);
             path.RemoveAt(0);
-        }
+
+            if(path.Count == 0 ) {
+                character.turnsTaken++;
+                gameManager.EndTurn();
+            }
+            else {
+                character.stepsTaken++;
+            }
+
+            //Turns vs Steps.. Turns are the total number of times the character reached destination. Steps is the total amount of steps taken.
+
+
+            //character.stepsTaken = 0;
+            //character.turnsTaken++;
+
+        } 
+       
 
     }
 
