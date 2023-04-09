@@ -212,6 +212,36 @@ private OverlayTile GetTileAtPosition(int x, int y)
 
 
 
+public List<OverlayTile> GetTilesInRange(OverlayTile start, int range)
+{
+   var inRangeTiles = new List<OverlayTile>();
+   int stepCount = 0;
+
+   inRangeTiles.Add(start);
+
+   var tilesFromPreviousStep = new List<OverlayTile>();
+   tilesFromPreviousStep.Add(start);
+
+
+   while(stepCount < range) {
+    var surroundingTiles = new List<OverlayTile>();
+
+    foreach(var item in tilesFromPreviousStep){
+        surroundingTiles.AddRange(GetNeighborTiles(item));
+    }
+
+    inRangeTiles.AddRange(surroundingTiles);
+    tilesFromPreviousStep = surroundingTiles.Distinct().ToList();
+    stepCount++;
+   }
+
+  return inRangeTiles.Distinct().ToList();
+   
+}
+
+
+
+
 
 
 
