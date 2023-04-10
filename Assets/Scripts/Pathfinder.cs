@@ -229,7 +229,6 @@ public List<OverlayTile> GetTilesInRange(OverlayTile start, int range)
     foreach(var item in tilesFromPreviousStep){
         surroundingTiles.AddRange(GetNeighborTiles(item));
     }
-
     inRangeTiles.AddRange(surroundingTiles);
     tilesFromPreviousStep = surroundingTiles.Distinct().ToList();
     stepCount++;

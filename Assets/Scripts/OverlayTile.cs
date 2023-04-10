@@ -27,10 +27,10 @@ public class OverlayTile : MonoBehaviour
         poop = transform.position;
 
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            HideTile();
-        }
+      //  if (Input.GetMouseButtonDown(0))
+      //  {
+       //     HideTile();
+      //  }
     }
 
 

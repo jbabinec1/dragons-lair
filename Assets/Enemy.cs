@@ -14,24 +14,29 @@ public class Enemy : MonoBehaviour
 
     private GameObject player;
     public GameObject enemy;
-    private bool isPlayerVisible = false;
+    public bool isPlayerVisible = false;
     public int actionPoints;
     public int nodesMoved;
     public OverlayTile startingTile;
     public OverlayTile activeTile;
+    public GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         enemy = GameObject.Find("enemy_idle_01");
-       // enemy = GameObject.FindGameObjectWithTag("Enemy");
+
+        gameManager = FindObjectOfType<GameManager>();
+
+    
         pathfinder = new Pathfinder();
         actionPoints = 2;
         nodesMoved = 0;
 
         startingTile = GameManager.enemyStartingTile;
         activeTile = GameManager.enemyStartingTile;
+
     }
 
     // Update is called once per frame
@@ -57,7 +62,6 @@ public class Enemy : MonoBehaviour
         if (isPlayerVisible && gameManager.isPlayerTurn == false)
         {
             if(activeTile == null){
-        
             // Move the enemy towards the player's current tile
             path = pathfinder.FindPath(activeTile, player.GetComponent<CharacterInfo>().activeTile);
 
@@ -80,7 +84,7 @@ public class Enemy : MonoBehaviour
                 nodesMoved = 0;
                 gameManager.EndTurn();
             }
-        } else if(!isPlayerVisible){
+        } else if(!isPlayerVisible) {
             gameManager.EndTurn();
         }
 
@@ -130,14 +134,15 @@ public class Enemy : MonoBehaviour
         // Check if the player is within the vision distance
         RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, directionToPlayer.normalized, visionDistance, playerLayer);
         isPlayerVisible = false;
+        gameManager.isPlayerVisible = false;
 
         foreach (RaycastHit2D hit in hits)
         {
             if (hit.collider != null && hit.collider.gameObject.tag == "Player" && !hit.collider.isTrigger)
             {
-                //Debug.Log("Hit collider tag: " + hit.collider.tag);
                 // The player is visible
                 isPlayerVisible = true;
+                gameManager.isPlayerVisible = true;
                 break;
             }
         }
@@ -149,6 +154,7 @@ public class Enemy : MonoBehaviour
     {
         // The player is not within the vision cone
         isPlayerVisible = false;
+        gameManager.isPlayerVisible = false;
     }
 }
 

@@ -9,6 +9,8 @@ public class MouseController : MonoBehaviour
     private CharacterInfo character;
     public Animator characterAnimationSprite;
 
+    public GameObject enemy;
+
     private Pathfinder pathfinder;
 
     public float speed;
@@ -17,6 +19,8 @@ public class MouseController : MonoBehaviour
 
     public OverlayTile startingTile;
     public OverlayTile activeTile;
+
+    public List<OverlayTile> inRangeTiles = new List<OverlayTile>();
 
 
     // Start is called before the first frame update
@@ -27,6 +31,7 @@ public class MouseController : MonoBehaviour
         
         character = GameObject.Find("dragon_child").GetComponent<CharacterInfo>();
         characterAnimationSprite = GameObject.Find("dragon_child").GetComponent<Animator>();
+        enemy = GameObject.Find("enemy_idle_01");
     }
 
 
@@ -86,6 +91,9 @@ public class MouseController : MonoBehaviour
                 MoveAlongPath();
             }
         }
+       /* else if(!enemy.isPlayerVisible){
+            gameManager.isPlayerTurn == true;
+        }*/
         else
         {
             characterAnimationSprite.SetBool("isWalking", false);
@@ -139,7 +147,6 @@ public class MouseController : MonoBehaviour
 
          GameManager gameManager = FindObjectOfType<GameManager>();
 
-        //if(Vector2.Distance(character.transform.position, path[0].transform.position) < 0.0001f)
         if ((character.transform.position - path[0].transform.position).magnitude < 0.0001f)
         {         
             PositionCharacterOnTile(path[0]);
@@ -149,6 +156,7 @@ public class MouseController : MonoBehaviour
                 character.turnsTaken++;
                 gameManager.EndTurn();
             }
+
             else {
                 character.stepsTaken++;
             }
@@ -177,5 +185,26 @@ public class MouseController : MonoBehaviour
 
         return null;
     }
+
+
+
+// Need to figure out where I want this triggered. From a button>? 
+   public void GetInRangeTiles() {
+
+      foreach(var item in inRangeTiles){
+        item.HideTile();
+    }
+
+    inRangeTiles = pathfinder.GetTilesInRange(character.startingTile, 1);
+
+    foreach(var item in inRangeTiles){
+        item.ShowTile();
+    }
+
+   }
+
+
+
+
 
 }
