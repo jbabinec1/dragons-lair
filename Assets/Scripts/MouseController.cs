@@ -152,7 +152,8 @@ public class MouseController : MonoBehaviour
             PositionCharacterOnTile(path[0]);
             path.RemoveAt(0);
 
-            if(path.Count == 0 ) {
+            if(path.Count == 0 ) { 
+               // GetInRangeTiles();
                 character.turnsTaken++;
                 gameManager.EndTurn();
             }
