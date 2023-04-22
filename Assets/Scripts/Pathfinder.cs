@@ -13,6 +13,8 @@ public class Pathfinder
     public Tilemap overlayTilemap;
 
 
+
+
     public List<OverlayTile> FindPath(OverlayTile start, OverlayTile end)
     {
 
@@ -182,14 +184,14 @@ public List<OverlayTile> GetAdjacentTiles(OverlayTile tile)
 }
 
 // Returns the cell position of the given world position
-private Vector3Int WorldToCellPosition(Vector3 worldPosition)
+public Vector3Int WorldToCellPosition(Vector3 worldPosition)
 {
     return overlayTilemap.WorldToCell(worldPosition);
 }
 
 
 // Returns the tile at the given position
-private OverlayTile GetTileAtPosition(int x, int y)
+public OverlayTile GetTileAtPosition(int x, int y)
 {
     Vector3 worldPosition = new Vector3(x, y, 0);
     Vector3Int cellPosition = WorldToCellPosition(worldPosition);

@@ -41,14 +41,14 @@ void Start()
         {
             // Player turn is over, start the enemy turn
             isPlayerTurn = false;
-            Debug.Log("End of Player Turn");
+           // Debug.Log("End of Player Turn");
         }
         else
         {
             // Enemy turn is over, start the player turn
             isPlayerTurn = true;
             turnNumber++;
-            Debug.Log("End of Enemy Turn");
+           // Debug.Log("End of Enemy Turn");
         }
     }
 

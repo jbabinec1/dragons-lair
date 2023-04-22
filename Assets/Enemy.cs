@@ -21,6 +21,12 @@ public class Enemy : MonoBehaviour
     public OverlayTile activeTile;
     public GameManager gameManager;
 
+    public LayerMask collisionLayers;
+
+    private float timeBlocked = 0f;
+    public float maxTimeBlocked = 0.5f; // You can adjust this value as needed
+  
+
     // Start is called before the first frame update
     void Start()
     {
@@ -89,8 +95,54 @@ public class Enemy : MonoBehaviour
         }
 
     }
-    
 
+
+
+public void MoveAlongPath()
+{
+    var step = 2f * Time.deltaTime;
+
+    if (path.Count > 0)
+    {
+        // Calculate the direction of movement
+        Vector2 currentPosition = transform.position;
+        Vector2 targetPosition = path[0].transform.position;
+        Vector2 direction = (targetPosition - currentPosition).normalized;
+
+        // Perform a CircleCast to check for collisions
+        float colliderRadius = GetComponent<CircleCollider2D>().radius;
+        RaycastHit2D hit = Physics2D.CircleCast(currentPosition, colliderRadius, direction, step, collisionLayers);
+
+        // Move the enemy if there's no collision
+        if (hit.collider == null)
+        {
+            transform.position = Vector2.MoveTowards(currentPosition, targetPosition, step);
+            transform.position = new Vector3(transform.position.x, transform.position.y, path[0].transform.position.z);
+            timeBlocked = 0f;
+        }
+        else
+            {
+            timeBlocked += Time.deltaTime;
+            if (timeBlocked >= maxTimeBlocked)
+            {
+                path.Clear();
+                GameManager gameManager = FindObjectOfType<GameManager>();
+                gameManager.EndTurn();
+            }
+            return;
+        }
+
+        if ((transform.position - path[0].transform.position).magnitude < 0.0001f)
+        {
+            PositionEnemyOnTile(path[0]);
+            path.RemoveAt(0);
+            nodesMoved++;
+        }
+    }
+}
+
+    
+    /*
     public void MoveAlongPath()
     {
         var step = 2f * Time.deltaTime;
@@ -107,7 +159,7 @@ public class Enemy : MonoBehaviour
             path.RemoveAt(0);
             nodesMoved++;
         }
-    }
+    } */
 
     private void PositionEnemyOnTile(OverlayTile tile)
     {

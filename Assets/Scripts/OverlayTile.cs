@@ -46,5 +46,17 @@ public class OverlayTile : MonoBehaviour
 
     }
 
+
+    public void HighlightRed()
+    {
+    GetComponent<SpriteRenderer>().color = Color.red;
+    }
+
+    public void ResetHighlight()
+    {
+    GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+
     
 }
