@@ -20,6 +20,9 @@ public class OverlayTile : MonoBehaviour
 
     [SerializeField] public Vector3 poop;
 
+    // In range tiles highlighted when attack btn is pressed
+    public bool activatedTile = false;
+
 
     // Update is called once per frame
     public void Update()
@@ -31,6 +34,12 @@ public class OverlayTile : MonoBehaviour
       //  {
        //     HideTile();
       //  }
+    }
+
+
+    public void ShowTileAttack()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
     }
 
 

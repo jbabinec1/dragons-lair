@@ -42,6 +42,7 @@ public class attack : MonoBehaviour
     }
         
     }
+    
 
     public void GetInRangeTiles() {
       
@@ -51,8 +52,6 @@ public class attack : MonoBehaviour
         }
         return;
     }
-
-    
 
 
     foreach(var item in inRangeTiles){
@@ -72,10 +71,20 @@ public class attack : MonoBehaviour
     foreach(var item in inRangeTiles){
 
         item.ShowTile();
+        item.activatedTile = true;
+
+        //(Vector2.Distance(item.transform.position, enemy.transform.position) < 0.1f) 
+
+        // Check if the enemy is standing on the tile
+       if (Vector2.Distance(item.transform.position, enemy.transform.position) <= 0.5f) {
+        item.ShowTileAttack();
+
+        Debug.Log("Enemy is in range");
+    }
         
     }
-    OverlayTile mouseTile = GetTileUnderMouse();
-        Debug.Log(mouseTile);
+  //  OverlayTile mouseTile = GetTileUnderMouse();
+       // Debug.Log(mouseTile);
 }
 
 
