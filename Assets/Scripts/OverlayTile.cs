@@ -27,10 +27,10 @@ public class OverlayTile : MonoBehaviour
         poop = transform.position;
 
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            HideTile();
-        }
+      //  if (Input.GetMouseButtonDown(0))
+      //  {
+       //     HideTile();
+      //  }
     }
 
 
@@ -45,6 +45,18 @@ public class OverlayTile : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
 
     }
+
+
+    public void HighlightRed()
+    {
+    GetComponent<SpriteRenderer>().color = Color.red;
+    }
+
+    public void ResetHighlight()
+    {
+    GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
 
     
 }

@@ -14,24 +14,35 @@ public class Enemy : MonoBehaviour
 
     private GameObject player;
     public GameObject enemy;
-    private bool isPlayerVisible = false;
+    public bool isPlayerVisible = false;
     public int actionPoints;
     public int nodesMoved;
     public OverlayTile startingTile;
     public OverlayTile activeTile;
+    public GameManager gameManager;
+
+    public LayerMask collisionLayers;
+
+    private float timeBlocked = 0f;
+    public float maxTimeBlocked = 0.5f; // You can adjust this value as needed
+  
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         enemy = GameObject.Find("enemy_idle_01");
-       // enemy = GameObject.FindGameObjectWithTag("Enemy");
+
+        gameManager = FindObjectOfType<GameManager>();
+
+    
         pathfinder = new Pathfinder();
         actionPoints = 2;
         nodesMoved = 0;
 
         startingTile = GameManager.enemyStartingTile;
         activeTile = GameManager.enemyStartingTile;
+
     }
 
     // Update is called once per frame
@@ -57,7 +68,6 @@ public class Enemy : MonoBehaviour
         if (isPlayerVisible && gameManager.isPlayerTurn == false)
         {
             if(activeTile == null){
-        
             // Move the enemy towards the player's current tile
             path = pathfinder.FindPath(activeTile, player.GetComponent<CharacterInfo>().activeTile);
 
@@ -80,13 +90,59 @@ public class Enemy : MonoBehaviour
                 nodesMoved = 0;
                 gameManager.EndTurn();
             }
-        } else if(!isPlayerVisible){
+        } else if(!isPlayerVisible) {
             gameManager.EndTurn();
         }
 
     }
-    
 
+
+
+public void MoveAlongPath()
+{
+    var step = 2f * Time.deltaTime;
+
+    if (path.Count > 0)
+    {
+        // Calculate the direction of movement
+        Vector2 currentPosition = transform.position;
+        Vector2 targetPosition = path[0].transform.position;
+        Vector2 direction = (targetPosition - currentPosition).normalized;
+
+        // Perform a CircleCast to check for collisions
+        float colliderRadius = GetComponent<CircleCollider2D>().radius;
+        RaycastHit2D hit = Physics2D.CircleCast(currentPosition, colliderRadius, direction, step, collisionLayers);
+
+        // Move the enemy if there's no collision
+        if (hit.collider == null)
+        {
+            transform.position = Vector2.MoveTowards(currentPosition, targetPosition, step);
+            transform.position = new Vector3(transform.position.x, transform.position.y, path[0].transform.position.z);
+            timeBlocked = 0f;
+        }
+        else
+            {
+            timeBlocked += Time.deltaTime;
+            if (timeBlocked >= maxTimeBlocked)
+            {
+                path.Clear();
+                GameManager gameManager = FindObjectOfType<GameManager>();
+                gameManager.EndTurn();
+            }
+            return;
+        }
+
+        if ((transform.position - path[0].transform.position).magnitude < 0.0001f)
+        {
+            PositionEnemyOnTile(path[0]);
+            path.RemoveAt(0);
+            nodesMoved++;
+        }
+    }
+}
+
+    
+    /*
     public void MoveAlongPath()
     {
         var step = 2f * Time.deltaTime;
@@ -103,7 +159,7 @@ public class Enemy : MonoBehaviour
             path.RemoveAt(0);
             nodesMoved++;
         }
-    }
+    } */
 
     private void PositionEnemyOnTile(OverlayTile tile)
     {
@@ -130,14 +186,15 @@ public class Enemy : MonoBehaviour
         // Check if the player is within the vision distance
         RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, directionToPlayer.normalized, visionDistance, playerLayer);
         isPlayerVisible = false;
+        gameManager.isPlayerVisible = false;
 
         foreach (RaycastHit2D hit in hits)
         {
             if (hit.collider != null && hit.collider.gameObject.tag == "Player" && !hit.collider.isTrigger)
             {
-                //Debug.Log("Hit collider tag: " + hit.collider.tag);
                 // The player is visible
                 isPlayerVisible = true;
+                gameManager.isPlayerVisible = true;
                 break;
             }
         }
@@ -149,6 +206,7 @@ public class Enemy : MonoBehaviour
     {
         // The player is not within the vision cone
         isPlayerVisible = false;
+        gameManager.isPlayerVisible = false;
     }
 }
 

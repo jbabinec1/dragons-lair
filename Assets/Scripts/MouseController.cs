@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
 
 public class MouseController : MonoBehaviour
 {
     public GameObject characterPrefab;
     private CharacterInfo character;
     public Animator characterAnimationSprite;
+    public attack attackStatus;
+
+    public GameObject enemy;
 
     private Pathfinder pathfinder;
 
@@ -18,6 +24,20 @@ public class MouseController : MonoBehaviour
     public OverlayTile startingTile;
     public OverlayTile activeTile;
 
+    public List<OverlayTile> inRangeTiles = new List<OverlayTile>();
+
+    public LayerMask collisionLayers;
+
+    private float timeBlocked = 0f;
+    public float maxTimeBlocked = 0.5f; // You can adjust this value as needed
+
+    public float movementForce = 100f;
+    
+    public bool isTurnInProgress = true;
+
+ 
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +47,7 @@ public class MouseController : MonoBehaviour
         
         character = GameObject.Find("dragon_child").GetComponent<CharacterInfo>();
         characterAnimationSprite = GameObject.Find("dragon_child").GetComponent<Animator>();
+        enemy = GameObject.Find("enemy_idle_01");
     }
 
 
@@ -47,7 +68,7 @@ public class MouseController : MonoBehaviour
 
         }
 
-        if (focusedTileHit != null && focusedTileHit.HasValue)
+        if (focusedTileHit != null && focusedTileHit.HasValue && !IsPointerOverUIObject())
         {
             OverlayTile overlayTile = focusedTileHit.Value.collider.gameObject.GetComponent<OverlayTile>();
 
@@ -86,6 +107,9 @@ public class MouseController : MonoBehaviour
                 MoveAlongPath();
             }
         }
+       /* else if(!enemy.isPlayerVisible){
+            gameManager.isPlayerTurn == true;
+        }*/
         else
         {
             characterAnimationSprite.SetBool("isWalking", false);
@@ -110,7 +134,7 @@ public class MouseController : MonoBehaviour
         return null;
     }
 
-
+    
     private void PositionCharacterOnTile(OverlayTile tile)
     {
         character.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z);
@@ -126,6 +150,72 @@ public class MouseController : MonoBehaviour
     }
 
 
+/*
+public void MoveAlongPath()
+{
+    if (!isTurnInProgress && path != null && path.Count > 0)
+    {
+        isTurnInProgress = true;
+    }
+
+    if (isTurnInProgress)
+    {
+        if (path != null && path.Count > 0)
+        {
+            Vector2 newPosition = path[0].transform.position;
+            Vector2 direction = newPosition - (Vector2)character.transform.position;
+            direction.Normalize();
+
+            Rigidbody2D rb = character.GetComponent<Rigidbody2D>();
+
+            RaycastHit2D hit = Physics2D.Linecast(character.transform.position, newPosition);
+
+            if (hit.collider != null && hit.collider.gameObject != character.gameObject)
+            {
+                timeBlocked += Time.deltaTime;
+                if (timeBlocked >= maxTimeBlocked)
+                {
+                    path.Clear();
+                    isTurnInProgress = false;
+                    GameManager gameManager = FindObjectOfType<GameManager>();
+                    gameManager.EndTurn();
+                }
+                return;
+            }
+            else
+            {
+                timeBlocked = 0;
+            }
+
+            rb.AddForce(direction * movementForce * Time.deltaTime);
+
+            if ((character.transform.position - path[0].transform.position).magnitude < 0.1f)
+            {
+                rb.velocity = Vector2.zero;
+                PositionCharacterOnTile(path[0]);
+                path.RemoveAt(0);
+
+                if (path.Count == 0)
+                {
+                    character.turnsTaken++;
+                    isTurnInProgress = false;
+                    GameManager gameManager = FindObjectOfType<GameManager>();
+                    gameManager.EndTurn();
+                }
+                else
+                {
+                    character.stepsTaken++;
+                }
+            }
+        }
+    }
+}*/
+
+
+
+
+
+
     public void MoveAlongPath()
     {
       
@@ -139,16 +229,17 @@ public class MouseController : MonoBehaviour
 
          GameManager gameManager = FindObjectOfType<GameManager>();
 
-        //if(Vector2.Distance(character.transform.position, path[0].transform.position) < 0.0001f)
         if ((character.transform.position - path[0].transform.position).magnitude < 0.0001f)
         {         
             PositionCharacterOnTile(path[0]);
             path.RemoveAt(0);
 
-            if(path.Count == 0 ) {
+            if(path.Count == 0 ) { 
+               // GetInRangeTiles();
                 character.turnsTaken++;
                 gameManager.EndTurn();
             }
+
             else {
                 character.stepsTaken++;
             }
@@ -165,7 +256,7 @@ public class MouseController : MonoBehaviour
     }
 
 
-
+    //  Get the tile the player is currently on
     public RaycastHit2D? GetFocusedOnTileFromPlayer()
     {
         RaycastHit2D[] hits = Physics2D.RaycastAll(character.transform.position, Vector2.zero);
@@ -177,5 +268,37 @@ public class MouseController : MonoBehaviour
 
         return null;
     }
+
+    //  Check if mouse is over button so we can prevent movement 
+    private bool IsPointerOverUIObject()
+{
+    PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current)
+    {
+        position = new Vector2(Input.mousePosition.x, Input.mousePosition.y)
+    };
+    List<RaycastResult> results = new List<RaycastResult>();
+    EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+    return results.Count > 0;
+}
+
+
+
+   public void GetInRangeTiles() {
+
+      foreach(var item in inRangeTiles){
+        item.HideTile();
+    }
+
+    inRangeTiles = pathfinder.GetTilesInRange(character.startingTile, 1);
+
+    foreach(var item in inRangeTiles){
+        item.ShowTile();
+    }
+
+   }
+
+
+
+
 
 }

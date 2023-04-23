@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public bool isEnemyTurn = false;
     public GameObject enemy;
 
+    public bool isPlayerVisible = false;
+
     public static OverlayTile enemyStartingTile;
 
 void Start() 
@@ -32,22 +34,23 @@ void Start()
 }
 
 
-    // Other code for your GameManager goes here...
 
     public void EndTurn()
     {
-        if (isPlayerTurn)
+        if (isPlayerTurn && isPlayerVisible)
         {
             // Player turn is over, start the enemy turn
             isPlayerTurn = false;
-            Debug.Log("End of Player Turn");
+           // Debug.Log("End of Player Turn");
         }
         else
         {
             // Enemy turn is over, start the player turn
             isPlayerTurn = true;
             turnNumber++;
-            Debug.Log("End of Enemy Turn");
+           // Debug.Log("End of Enemy Turn");
         }
     }
+
+
 }
