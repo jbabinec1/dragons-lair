@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     public static OverlayTile enemyStartingTile;
 
+    public int queTurnNumber = 0;
+
 void Start() 
 {
     enemy = GameObject.FindGameObjectWithTag("Enemy");
