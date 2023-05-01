@@ -255,6 +255,7 @@ public void ToggleAttack()
  public void PerformPunchAttack() {
         if(attackReady == true) {
             Debug.Log("Punch attack");
+            enemy.GetComponent<Enemy>().TakeDamage(.1f);
             attackReady = false;
         } if(!enemyInRange) {
             Debug.Log("Attack not ready. Not in range.");

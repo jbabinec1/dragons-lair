@@ -25,6 +25,9 @@ public class Enemy : MonoBehaviour
 
     private float timeBlocked = 0f;
     public float maxTimeBlocked = 0.5f; // You can adjust this value as needed
+
+    public float maxHealth = 1;
+    public float currentHealth = 1;
   
 
     // Start is called before the first frame update
@@ -229,6 +232,25 @@ public void MoveAlongPath()
 
     return null;
 }
+
+
+
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        //Destroy(gameObject);
+        Debug.Log("Enemy died");
+    }
+
 
 
 
