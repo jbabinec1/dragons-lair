@@ -226,6 +226,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5441052456963436117, guid: dec9d85fe7840b842a9e792b0d909298, type: 3}
   m_PrefabInstance: {fileID: 5441052456960219096}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &15939986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15939979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b131ad784259c724fb67f7289782d37b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &66064205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,6 +1133,7 @@ MonoBehaviour:
   attackReady: 0
   attackQueued: 0
   queTurnNumber: 0
+  selectedEnemy: {fileID: 0}
 --- !u!4 &931367407
 Transform:
   m_ObjectHideFlags: 0
@@ -5228,6 +5241,9 @@ MonoBehaviour:
   maxTimeBlocked: 0.5
   movementForce: 100
   isTurnInProgress: 0
+  defaultHoverColor: {r: 0.6419836, g: 0.6698113, b: 0.13522604, a: 0}
+  enemyHoverColor: {r: 0.8679245, g: 0.15065858, b: 0.15065858, a: 0}
+  hoverIconRenderer: {fileID: 0}
 --- !u!1001 &102143026960509712
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,7 +13,10 @@ public class MouseController : MonoBehaviour
     public Animator characterAnimationSprite;
     public attack attackStatus;
 
-    public GameObject enemy;
+   // public GameObject enemy;
+    public Enemy enemy;
+
+    public GameManager gameManager;
 
     private Pathfinder pathfinder;
 
@@ -35,6 +38,14 @@ public class MouseController : MonoBehaviour
     
     public bool isTurnInProgress = true;
 
+    public Color defaultHoverColor;
+    public Color enemyHoverColor;
+
+    public SpriteRenderer hoverIconRenderer;
+
+
+
+
  
 
 
@@ -44,10 +55,15 @@ public class MouseController : MonoBehaviour
     {
         //character = characterPrefab.GetComponent<CharacterInfo>();
         pathfinder = new Pathfinder();
+        gameManager = FindObjectOfType<GameManager>();
         
         character = GameObject.Find("dragon_child").GetComponent<CharacterInfo>();
         characterAnimationSprite = GameObject.Find("dragon_child").GetComponent<Animator>();
-        enemy = GameObject.Find("enemy_idle_01");
+        enemy = GameObject.Find("enemy_idle_01").GetComponent<Enemy>();
+
+        hoverIconRenderer = GameObject.Find("Cursor").GetComponent<SpriteRenderer>();
+
+
     }
 
 
@@ -72,10 +88,50 @@ public class MouseController : MonoBehaviour
         {
             OverlayTile overlayTile = focusedTileHit.Value.collider.gameObject.GetComponent<OverlayTile>();
 
+            if (focusedTileHit.Value.collider.gameObject == enemy)
+            {
+                hoverIconRenderer.color = Color.red;
+            }
+            else
+            {
+
+                hoverIconRenderer.color = Color.yellow;
+
+            } 
+
             if (overlayTile != null)
             {
                 transform.position = overlayTile.transform.position;
                 gameObject.GetComponent<SpriteRenderer>().sortingOrder = overlayTile.GetComponent<SpriteRenderer>().sortingOrder;
+
+             /*   if (Input.GetMouseButtonDown(0) && overlayTile != null && gameManager.isPlayerTurn == true) {
+                 // Check if the clicked GameObject is the enemy
+                     if (focusedTileHit.Value.collider.gameObject == enemy.gameObject)
+                    {
+                 // If it's the enemy, find a path to the enemy's tile
+                // OverlayTile enemyTile = enemy.activeTile; 
+                
+                 path = pathfinder.FindPath(character.activeTile, enemy.activeTile);
+                character.activeTile = enemy.activeTile;   
+    }
+    else
+    {
+        // Handle regular tile clicking as you did before
+        if (character.activeTile == null)
+        {
+            character.startingTile = focusedOnTileFromPlayer?.collider.gameObject.GetComponent<OverlayTile>();
+            path = pathfinder.FindPath(character.startingTile, overlayTile);
+            character.activeTile = character.startingTile;
+        }
+        else if (character.activeTile != overlayTile)
+        {
+            path = pathfinder.FindPath(character.activeTile, overlayTile);
+            character.activeTile = overlayTile;
+        }
+    }
+}*/
+
+                
                 if (Input.GetMouseButtonDown(0) && overlayTile != null && gameManager.isPlayerTurn == true)
                 {
                     if (character.activeTile == null)
@@ -93,7 +149,7 @@ public class MouseController : MonoBehaviour
                         path = pathfinder.FindPath(character.activeTile, overlayTile);
                         character.activeTile = overlayTile;
                     }
-                }
+                } 
             }
         }
 

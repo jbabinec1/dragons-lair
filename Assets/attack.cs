@@ -22,9 +22,14 @@ public class attack : MonoBehaviour
     
     public bool attackReady = false; // this determines if enemy is detected in range when attack btn is first pressed
 
-    public bool attackQueued = false; 
+    public bool attackQueued = false; // queue before attack is performed
 
     public int queTurnNumber = 0;
+
+    public bool attackInProgress = false;
+
+    public GameObject selectedEnemy;
+
 
 
     // Start is called before the first frame update
@@ -95,7 +100,9 @@ public class attack : MonoBehaviour
         enemyInRange = true;
 
         Debug.Log("Enemy is in range");
-    } 
+    } else {
+        Debug.Log("Enemy is not in range");
+    }
         
     }
   //  OverlayTile mouseTile = GetTileUnderMouse();
@@ -169,6 +176,7 @@ public void ToggleAttack()
     GetInRangeTiles();
 
     if (!isAttackActive)
+
     {
         isAttackActive = true;
 
@@ -179,6 +187,8 @@ public void ToggleAttack()
         }
         else
         {
+            // add code to move towards enemy
+
             attackQueued = false;
             attackReady = false;
         }
@@ -214,6 +224,12 @@ public void ToggleAttack()
         }
         
     } 
+
+    public void SetSelectedEnemy(GameObject enemy)
+{
+    selectedEnemy = enemy;
+}
+
 
 
 
@@ -341,7 +357,7 @@ public void AttackEnemy()
         if (mouseTile != null && inRangeTiles.Contains(mouseTile))
         {
             // EnemyController enemy = mouseTile.GetComponentInChildren<EnemyController>();
-            if (enemy != null)
+            if (attackReady && enemy != null)
             {
                 Debug.Log("Attack");
                // character.GetComponent<CharacterAnimation>().SetTrigger("attack");
