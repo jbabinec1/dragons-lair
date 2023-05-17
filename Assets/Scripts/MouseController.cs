@@ -13,8 +13,8 @@ public class MouseController : MonoBehaviour
     public Animator characterAnimationSprite;
     public attack attackStatus;
 
-   // public GameObject enemy;
-    public Enemy enemy;
+    public GameObject enemy;
+    //public Enemy enemy;
 
     public GameManager gameManager;
 
@@ -59,7 +59,8 @@ public class MouseController : MonoBehaviour
         
         character = GameObject.Find("dragon_child").GetComponent<CharacterInfo>();
         characterAnimationSprite = GameObject.Find("dragon_child").GetComponent<Animator>();
-        enemy = GameObject.Find("enemy_idle_01").GetComponent<Enemy>();
+        //enemy = GameObject.Find("enemy_idle_01").GetComponent<Enemy>();
+        enemy = GameObject.Find("enemy_idle_01");
 
         hoverIconRenderer = GameObject.Find("Cursor").GetComponent<SpriteRenderer>();
 
@@ -74,9 +75,37 @@ public class MouseController : MonoBehaviour
 
         var focusedTileHit = GetFocusedOnTile();
 
-        var focusedOnTileFromPlayer = GetFocusedOnTileFromPlayer();
+        //var focusedOnTileFromPlayer = GetFocusedOnTileFromPlayer();
+        var focusedOnTileFromPlayer = GetTileUnderMouse();
 
         var isMoving = false;
+
+
+        // Get the mouse position on the screen and print it out
+        Vector3 mouseScreenPosition = Input.mousePosition;
+        mouseScreenPosition.z = 10.0f;
+        Debug.Log("Mouse Screen Position: " + mouseScreenPosition);
+
+        // Convert the screen position of the mouse to a world position and print it out
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
+        Debug.Log("Mouse World Position: " + mouseWorldPosition);
+
+        // Print out the enemy's world position
+        Debug.Log("Enemy World Position: " + enemy.transform.position);
+
+        // Get the bounds of the enemy's sprite
+         Bounds enemyBounds = enemy.GetComponent<SpriteRenderer>().bounds;
+
+        // Check if the mouse is over the enemy
+        if (enemyBounds.Contains(mouseWorldPosition))
+        {
+            hoverIconRenderer.color = Color.red;
+        }
+        else
+        {
+        hoverIconRenderer.color = defaultHoverColor;
+        }
+
 
         if (focusedOnTileFromPlayer.HasValue)
         {
@@ -84,7 +113,7 @@ public class MouseController : MonoBehaviour
 
         }
 
-        if (focusedTileHit != null && focusedTileHit.HasValue && !IsPointerOverUIObject())
+        if (focusedTileHit != null && focusedTileHit.HasValue) //&& !IsPointerOverUIObject()
         {
             OverlayTile overlayTile = focusedTileHit.Value.collider.gameObject.GetComponent<OverlayTile>();
 
@@ -174,6 +203,8 @@ public class MouseController : MonoBehaviour
     }
 
 
+
+
     public RaycastHit2D? GetFocusedOnTile()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -189,6 +220,25 @@ public class MouseController : MonoBehaviour
 
         return null;
     }
+
+    
+    public RaycastHit2D? GetTileUnderMouse()
+   {
+    Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
+
+    if (hit.collider != null)
+    {
+        OverlayTile tile = hit.collider.gameObject.GetComponent<OverlayTile>();
+        if (tile != null)
+        {
+            return hit;
+        }
+    }
+
+    return null;
+}
+
 
     
     private void PositionCharacterOnTile(OverlayTile tile)

@@ -1133,6 +1133,7 @@ MonoBehaviour:
   attackReady: 0
   attackQueued: 0
   queTurnNumber: 0
+  attackInProgress: 0
   selectedEnemy: {fileID: 0}
 --- !u!4 &931367407
 Transform:
@@ -5203,7 +5204,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 20
+  m_SortingOrder: 200
   m_Sprite: {fileID: 21300000, guid: 11d624fe4ea44479cac55395f07e07ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5231,6 +5232,7 @@ MonoBehaviour:
   characterAnimationSprite: {fileID: 0}
   attackStatus: {fileID: 931367406}
   enemy: {fileID: 0}
+  gameManager: {fileID: 0}
   speed: 2
   startingTile: {fileID: 0}
   activeTile: {fileID: 0}
@@ -5412,11 +5414,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5441052456963436117, guid: dec9d85fe7840b842a9e792b0d909298, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.08
+      value: 1.62
       objectReference: {fileID: 0}
     - target: {fileID: 5441052456963436117, guid: dec9d85fe7840b842a9e792b0d909298, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.76
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5441052456963436117, guid: dec9d85fe7840b842a9e792b0d909298, type: 3}
       propertyPath: m_LocalPosition.z
