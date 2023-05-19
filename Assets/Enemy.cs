@@ -79,7 +79,7 @@ public class Enemy : MonoBehaviour
 
             else if(activeTile != player.GetComponent<CharacterInfo>().activeTile) {
                  path = pathfinder.FindPath(activeTile, player.GetComponent<CharacterInfo>().activeTile);
-                 activeTile = player.GetComponent<CharacterInfo>().activeTile;
+                // activeTile = player.GetComponent<CharacterInfo>().activeTile;
             }
 
             // Move the enemy along the path

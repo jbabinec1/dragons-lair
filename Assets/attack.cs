@@ -53,29 +53,20 @@ public class attack : MonoBehaviour
     void Update()
     {
 
-        if (isAttackActive)
-    {
-       // HighlightAttackableTiles();
-      // AttackEnemy();
-       // UpdateAttackTiles();
-    }
+     
         
     }
     
 
+
     public void GetInRangeTiles() {
-      
     if (isAttackActive && !enemyInRange) {
         foreach(var item in inRangeTiles) {
             item.HideTile();
         }
         return;
     }
-
-    /* I don't think I actually need this
-    foreach(var item in inRangeTiles){
-        item.HideTile();
-    }*/
+    
 
     if (character.startingTile != null) {
         inRangeTiles = pathfinder.GetTilesInRange(character.startingTile, 3);
@@ -171,7 +162,7 @@ public void ToggleAttack()
 }
 */
 
-public void ToggleAttack()
+public void ToggleAttack() 
 {
     GetInRangeTiles();
 

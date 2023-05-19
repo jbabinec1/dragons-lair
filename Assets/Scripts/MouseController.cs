@@ -84,27 +84,14 @@ public class MouseController : MonoBehaviour
         // Get the mouse position on the screen and print it out
         Vector3 mouseScreenPosition = Input.mousePosition;
         mouseScreenPosition.z = 10.0f;
-        Debug.Log("Mouse Screen Position: " + mouseScreenPosition);
+      //  Debug.Log("Mouse Screen Position: " + mouseScreenPosition);
 
         // Convert the screen position of the mouse to a world position and print it out
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
-        Debug.Log("Mouse World Position: " + mouseWorldPosition);
+       // Debug.Log("Mouse World Position: " + mouseWorldPosition);
 
         // Print out the enemy's world position
-        Debug.Log("Enemy World Position: " + enemy.transform.position);
-
-        // Get the bounds of the enemy's sprite
-         Bounds enemyBounds = enemy.GetComponent<SpriteRenderer>().bounds;
-
-        // Check if the mouse is over the enemy
-        if (enemyBounds.Contains(mouseWorldPosition))
-        {
-            hoverIconRenderer.color = Color.red;
-        }
-        else
-        {
-        hoverIconRenderer.color = defaultHoverColor;
-        }
+       // Debug.Log("Enemy World Position: " + enemy.transform.position);
 
 
         if (focusedOnTileFromPlayer.HasValue)
@@ -113,7 +100,7 @@ public class MouseController : MonoBehaviour
 
         }
 
-        if (focusedTileHit != null && focusedTileHit.HasValue) //&& !IsPointerOverUIObject()
+        if (focusedTileHit != null && focusedTileHit.HasValue && !IsPointerOverUIObject())
         {
             OverlayTile overlayTile = focusedTileHit.Value.collider.gameObject.GetComponent<OverlayTile>();
 
@@ -132,33 +119,6 @@ public class MouseController : MonoBehaviour
             {
                 transform.position = overlayTile.transform.position;
                 gameObject.GetComponent<SpriteRenderer>().sortingOrder = overlayTile.GetComponent<SpriteRenderer>().sortingOrder;
-
-             /*   if (Input.GetMouseButtonDown(0) && overlayTile != null && gameManager.isPlayerTurn == true) {
-                 // Check if the clicked GameObject is the enemy
-                     if (focusedTileHit.Value.collider.gameObject == enemy.gameObject)
-                    {
-                 // If it's the enemy, find a path to the enemy's tile
-                // OverlayTile enemyTile = enemy.activeTile; 
-                
-                 path = pathfinder.FindPath(character.activeTile, enemy.activeTile);
-                character.activeTile = enemy.activeTile;   
-    }
-    else
-    {
-        // Handle regular tile clicking as you did before
-        if (character.activeTile == null)
-        {
-            character.startingTile = focusedOnTileFromPlayer?.collider.gameObject.GetComponent<OverlayTile>();
-            path = pathfinder.FindPath(character.startingTile, overlayTile);
-            character.activeTile = character.startingTile;
-        }
-        else if (character.activeTile != overlayTile)
-        {
-            path = pathfinder.FindPath(character.activeTile, overlayTile);
-            character.activeTile = overlayTile;
-        }
-    }
-}*/
 
                 
                 if (Input.GetMouseButtonDown(0) && overlayTile != null && gameManager.isPlayerTurn == true)
@@ -179,7 +139,11 @@ public class MouseController : MonoBehaviour
                         character.activeTile = overlayTile;
                     }
                 } 
-            }
+            } else if(focusedTileHit.Value.collider.gameObject == enemy)
+                 {
+                 transform.position = mouseWorldPosition;
+                 gameObject.GetComponent<SpriteRenderer>().sortingOrder = enemy.GetComponent<SpriteRenderer>().sortingOrder + 1;
+                }
         }
 
         if (path != null && path.Count > 0)
@@ -254,6 +218,29 @@ public class MouseController : MonoBehaviour
 
      
     }
+
+    public void MoveTowardsEnemy(GameObject enemyObject)
+{
+    //OverlayTile enemyTile = /* Get the tile the enemy is on */
+
+    // This will find a path to the enemy's tile.
+    // Replace character.activeTile with the character's current tile.
+    path = pathfinder.FindPath(character.activeTile, enemyObject.GetComponent<Enemy>().activeTile);
+
+    // This will make the character start moving along the path on the next frame
+    // because it triggers the path-following logic in your Update method.
+  if (path.Count > 0)
+    {
+        MoveAlongPath();
+    }
+  //  else
+   // {
+   //     Debug.Log("No path to enemy found!");
+  //  }
+
+
+}
+
 
 
 /*
