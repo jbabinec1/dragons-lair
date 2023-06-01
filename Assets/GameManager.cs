@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 
 void Start() 
 {
+    
+
     enemy = GameObject.FindGameObjectWithTag("Enemy");
 
     // ... code to find the enemy game object ...
@@ -35,8 +37,28 @@ void Start()
    // Debug.Log(enemyStartingTile);
 }
 
+public void EndTurn()
+{
+   // Debug.Log("EndTurn called. isPlayerVisible: " + isPlayerVisible);
+
+    if (isPlayerTurn && isPlayerVisible)
+    {
+        // Player turn is over, start the enemy turn
+        isPlayerTurn = false;
+       // Debug.Log("End of Player Turn");
+    }
+    else
+    {
+        // Enemy turn is over, start the player turn
+        isPlayerTurn = true;
+        turnNumber++;
+       // Debug.Log("End of Enemy Turn");
+    }
+}
 
 
+
+/*
     public void EndTurn()
     {
         if (isPlayerTurn && isPlayerVisible)
@@ -52,7 +74,7 @@ void Start()
             turnNumber++;
            // Debug.Log("End of Enemy Turn");
         }
-    }
+    }*/
 
 
 }

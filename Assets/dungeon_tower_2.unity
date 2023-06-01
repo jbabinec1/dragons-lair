@@ -141,7 +141,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.005782604}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -152,29 +152,24 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1193142, y: 1.1908054}
+  m_Size: {x: 0.9375, y: 1.0625}
   m_EdgeRadius: 0
---- !u!50 &15939981
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!58 &15939981
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15939979}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.53125
 --- !u!114 &15939982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,22 +200,6 @@ MonoBehaviour:
   maxTimeBlocked: 0.5
   maxHealth: 1
   currentHealth: 1
---- !u!58 &15939983
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 15939979}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.53125
 --- !u!4 &15939985 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5441052456963436117, guid: dec9d85fe7840b842a9e792b0d909298, type: 3}
@@ -238,6 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b131ad784259c724fb67f7289782d37b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
 --- !u!1 &66064205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,6 +1115,8 @@ MonoBehaviour:
   queTurnNumber: 0
   attackInProgress: 0
   selectedEnemy: {fileID: 0}
+  mouseController: {fileID: 0}
+  attackRange: 1
 --- !u!4 &931367407
 Transform:
   m_ObjectHideFlags: 0
@@ -1213,6 +1195,8 @@ MonoBehaviour:
   overlayTilePrefab: {fileID: 205386580752460793, guid: cd2447bb862f54209968d243256d60e9, type: 3}
   overlayTilez: {fileID: 0}
   overlayContainer: {fileID: 2032901326}
+  pathfinder:
+    overlayTilemap: {fileID: 0}
 --- !u!1 &1181930828
 GameObject:
   m_ObjectHideFlags: 0
@@ -2643,9 +2627,37 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.014378309, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.62940335
+--- !u!114 &1546896046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546896039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93cc6a4987f7c684798156c56d545838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _map: {fileID: 0}
+  maxSpeed: 3.5
+  maxForce: 10
+  stoppingDistance: 0.1
+  slowingDistance: 1
+  lookAheadDistance: 1
+  avoidRadius: 0
+  avoidanceConsiderStuckedTime: 3
+  avoidanceConsiderReachedDistance: 1
+  rotateTransform: 0
+  rotateSpeed: 350
+  centerOffset: {x: 0, y: 0}
+  repath: 1
+  restrict: 0
+  closerPointOnInvalid: 1
+  debugPath: 1
 --- !u!1 &1691975704
 GameObject:
   m_ObjectHideFlags: 0
@@ -5231,8 +5243,12 @@ MonoBehaviour:
   characterPrefab: {fileID: 1546896039}
   characterAnimationSprite: {fileID: 0}
   attackStatus: {fileID: 931367406}
+  attackScript: {fileID: 0}
   enemy: {fileID: 0}
   gameManager: {fileID: 0}
+  mouseController: {fileID: 0}
+  pathfinder:
+    overlayTilemap: {fileID: 1181930831}
   speed: 2
   startingTile: {fileID: 0}
   activeTile: {fileID: 0}
@@ -5240,12 +5256,14 @@ MonoBehaviour:
   collisionLayers:
     serializedVersion: 2
     m_Bits: 128
-  maxTimeBlocked: 0.5
   movementForce: 100
   isTurnInProgress: 0
   defaultHoverColor: {r: 0.6419836, g: 0.6698113, b: 0.13522604, a: 0}
   enemyHoverColor: {r: 0.8679245, g: 0.15065858, b: 0.15065858, a: 0}
   hoverIconRenderer: {fileID: 0}
+  maxTimeBlocked: 0.5
+  isBlocked: 0
+  isAttacking: 0
 --- !u!1001 &102143026960509712
 PrefabInstance:
   m_ObjectHideFlags: 0

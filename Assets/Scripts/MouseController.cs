@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.Tilemaps;
 
 
 public class MouseController : MonoBehaviour
@@ -12,13 +13,16 @@ public class MouseController : MonoBehaviour
     private CharacterInfo character;
     public Animator characterAnimationSprite;
     public attack attackStatus;
+    public attack attackScript;
 
     public GameObject enemy;
     //public Enemy enemy;
 
     public GameManager gameManager;
 
-    private Pathfinder pathfinder;
+    public MouseController mouseController;
+
+    public Pathfinder pathfinder;
 
     public float speed;
 
@@ -31,8 +35,6 @@ public class MouseController : MonoBehaviour
 
     public LayerMask collisionLayers;
 
-    private float timeBlocked = 0f;
-    public float maxTimeBlocked = 0.5f; // You can adjust this value as needed
 
     public float movementForce = 100f;
     
@@ -42,6 +44,12 @@ public class MouseController : MonoBehaviour
     public Color enemyHoverColor;
 
     public SpriteRenderer hoverIconRenderer;
+
+    private float timeBlocked = 0f;
+    public float maxTimeBlocked = 2f;
+    public bool isBlocked = false;
+
+    public  bool isAttacking = false;
 
 
 
@@ -53,9 +61,20 @@ public class MouseController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //character = characterPrefab.GetComponent<CharacterInfo>();
-        pathfinder = new Pathfinder();
+        //test
+       // var tileMap = gameObject.GetComponentInChildren<Tilemap>();
+       // pathfinder = new Pathfinder(tileMap);
+
+        //OG?
+         pathfinder = new Pathfinder();
+        
+        
+        // pathfinder = new Pathfinder();
         gameManager = FindObjectOfType<GameManager>();
+
+        attackScript = FindObjectOfType<attack>();
+
+        mouseController = FindObjectOfType<MouseController>();
         
         character = GameObject.Find("dragon_child").GetComponent<CharacterInfo>();
         characterAnimationSprite = GameObject.Find("dragon_child").GetComponent<Animator>();
@@ -84,22 +103,16 @@ public class MouseController : MonoBehaviour
         // Get the mouse position on the screen and print it out
         Vector3 mouseScreenPosition = Input.mousePosition;
         mouseScreenPosition.z = 10.0f;
-      //  Debug.Log("Mouse Screen Position: " + mouseScreenPosition);
 
         // Convert the screen position of the mouse to a world position and print it out
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
-       // Debug.Log("Mouse World Position: " + mouseWorldPosition);
-
-        // Print out the enemy's world position
-       // Debug.Log("Enemy World Position: " + enemy.transform.position);
-
 
         if (focusedOnTileFromPlayer.HasValue)
         {
             character.startingTile = focusedOnTileFromPlayer.Value.collider.gameObject.GetComponent<OverlayTile>();
 
         }
-
+        
         if (focusedTileHit != null && focusedTileHit.HasValue && !IsPointerOverUIObject())
         {
             OverlayTile overlayTile = focusedTileHit.Value.collider.gameObject.GetComponent<OverlayTile>();
@@ -139,7 +152,7 @@ public class MouseController : MonoBehaviour
                         character.activeTile = overlayTile;
                     }
                 } 
-            } else if(focusedTileHit.Value.collider.gameObject == enemy)
+            } else if(focusedTileHit.Value.collider.gameObject == enemy) // If the mouse is over the enemy
                  {
                  transform.position = mouseWorldPosition;
                  gameObject.GetComponent<SpriteRenderer>().sortingOrder = enemy.GetComponent<SpriteRenderer>().sortingOrder + 1;
@@ -219,96 +232,119 @@ public class MouseController : MonoBehaviour
      
     }
 
-    public void MoveTowardsEnemy(GameObject enemyObject)
-{
-    //OverlayTile enemyTile = /* Get the tile the enemy is on */
 
-    // This will find a path to the enemy's tile.
-    // Replace character.activeTile with the character's current tile.
+
+    public void MoveTowardsEnemy(GameObject enemyObject)
+   {
     path = pathfinder.FindPath(character.activeTile, enemyObject.GetComponent<Enemy>().activeTile);
 
-    // This will make the character start moving along the path on the next frame
-    // because it triggers the path-following logic in your Update method.
-  if (path.Count > 0)
+    if (path.Count > 0)
     {
-        MoveAlongPath();
+       MoveAlongPath();
     }
-  //  else
-   // {
-   //     Debug.Log("No path to enemy found!");
-  //  }
+    else
+    {
+        Debug.Log("No path to enemy found!");
+    }
 
 
 }
 
 
-
-/*
-public void MoveAlongPath()
+/* Test
+public void MoveTowardsEnemy(GameObject enemyObject)
 {
-    if (!isTurnInProgress && path != null && path.Count > 0)
-    {
-        isTurnInProgress = true;
-    }
+    // Get the enemy's current tile
+    var enemy = enemyObject.GetComponent<Enemy>();
+    OverlayTile enemyTile = enemy.activeTile;
 
-    if (isTurnInProgress)
+    // Get the tiles adjacent to the enemy
+    var adjacentTiles = pathfinder.GetAdjacentTiles(enemyTile);
+    
+    // Find the tile that is immediately below the enemy
+    OverlayTile tileInFrontOfEnemy = null;
+    foreach (var tile in adjacentTiles)
     {
-        if (path != null && path.Count > 0)
+        // Check if the tile's y-coordinate is below the enemy's y-coordinate
+        if (tile.transform.position.y < enemy.transform.position.y)
         {
-            Vector2 newPosition = path[0].transform.position;
-            Vector2 direction = newPosition - (Vector2)character.transform.position;
-            direction.Normalize();
-
-            Rigidbody2D rb = character.GetComponent<Rigidbody2D>();
-
-            RaycastHit2D hit = Physics2D.Linecast(character.transform.position, newPosition);
-
-            if (hit.collider != null && hit.collider.gameObject != character.gameObject)
-            {
-                timeBlocked += Time.deltaTime;
-                if (timeBlocked >= maxTimeBlocked)
-                {
-                    path.Clear();
-                    isTurnInProgress = false;
-                    GameManager gameManager = FindObjectOfType<GameManager>();
-                    gameManager.EndTurn();
-                }
-                return;
-            }
-            else
-            {
-                timeBlocked = 0;
-            }
-
-            rb.AddForce(direction * movementForce * Time.deltaTime);
-
-            if ((character.transform.position - path[0].transform.position).magnitude < 0.1f)
-            {
-                rb.velocity = Vector2.zero;
-                PositionCharacterOnTile(path[0]);
-                path.RemoveAt(0);
-
-                if (path.Count == 0)
-                {
-                    character.turnsTaken++;
-                    isTurnInProgress = false;
-                    GameManager gameManager = FindObjectOfType<GameManager>();
-                    gameManager.EndTurn();
-                }
-                else
-                {
-                    character.stepsTaken++;
-                }
-            }
+            tileInFrontOfEnemy = tile;
+            break;
         }
     }
-}*/
+
+    if(tileInFrontOfEnemy != null)
+    {
+        path = pathfinder.FindPath(character.activeTile, tileInFrontOfEnemy);
+
+        if (path.Count > 0)
+        {
+            MoveAlongPath();
+        }
+        else
+        {
+            Debug.Log("No path to enemy found!");
+        }
+    }
+    else
+    {
+        Debug.Log("No valid tile in front of enemy found!");
+    }
+}
+*/
 
 
 
+public void MoveAlongPath()
+{
+    var step = speed * Time.deltaTime;
+    var zIndex = path[0].transform.position.z;
+    Vector2 currentPosition = character.transform.position;
+    Vector2 targetPosition = path[0].transform.position;
+    Vector2 direction = (targetPosition - currentPosition).normalized;
+
+    float distanceToTarget = Vector2.Distance(currentPosition, targetPosition);
+    RaycastHit2D hit = Physics2D.Raycast(currentPosition, direction, distanceToTarget, collisionLayers);
+
+    if(hit.collider != null && hit.collider.gameObject.CompareTag("Enemy")) {
+        //Debug.Log("Detected enemy in path. Attacking...");
+        if (!isAttacking) {
+            Debug.Log("Toggling attack...");
+            attackScript.CollisionAttack();
+            isAttacking = true;
+        }
+        timeBlocked += Time.deltaTime;
+        if (timeBlocked >= maxTimeBlocked) {
+            Debug.Log("Trying to end turn...");
+            isAttacking = false;
+            path.Clear();
+            gameManager.EndTurn();
+            return;
+        }
+    }
+    else {
+        isAttacking = false;
+        character.transform.position = Vector2.MoveTowards(character.transform.position, path[0].transform.position, step);
+        character.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, zIndex);
+        timeBlocked = 0f;
+    }
+    if ((character.transform.position - path[0].transform.position).magnitude < 0.0001f) {         
+        PositionCharacterOnTile(path[0]);
+        path.RemoveAt(0);
+        if(path.Count == 0 ) { 
+            //character.turnsTaken++;
+            gameManager.EndTurn();
+        } else {
+            character.stepsTaken++;
+        }
+    }
+}
 
 
 
+ 
+
+/* OG
     public void MoveAlongPath()
     {
       
@@ -337,16 +373,10 @@ public void MoveAlongPath()
                 character.stepsTaken++;
             }
 
-            //Turns vs Steps.. Turns are the total number of times the character reached destination. Steps is the total amount of steps taken.
-
-
-            //character.stepsTaken = 0;
-            //character.turnsTaken++;
-
         } 
        
 
-    }
+    } */
 
 
     //  Get the tile the player is currently on

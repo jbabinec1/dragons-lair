@@ -10,17 +10,18 @@ using System.Linq;
 
 public class attack : MonoBehaviour
 {
-    private Pathfinder pathfinder;
-    private List<OverlayTile> inRangeTiles;
+    
+     private List<OverlayTile> inRangeTiles;
      private CharacterInfo character;
      public bool isAttackActive = false;
      public GameObject enemy;
      public bool enemyInRange = false;
 
      public GameManager gameManager;
+     public Pathfinder pathfinder;
 
     
-    public bool attackReady = false; // this determines if enemy is detected in range when attack btn is first pressed
+    public bool attackReady = false; // this determines if enemy is detected in range when attack btn is first press
 
     public bool attackQueued = false; // queue before attack is performed
 
@@ -30,12 +31,19 @@ public class attack : MonoBehaviour
 
     public GameObject selectedEnemy;
 
+    bool isAttacking = false;
+
+    public MouseController mouseController;
+
+    public float attackRange = 2f;
+
+    MapManager mapManager = MapManager.Instance;
 
 
     // Start is called before the first frame update
     void Start()
     {
-       // pathfinder = new Pathfinder();
+       
        pathfinder = new Pathfinder();
 
        inRangeTiles = new List<OverlayTile>();
@@ -46,7 +54,8 @@ public class attack : MonoBehaviour
 
         gameManager = FindObjectOfType<GameManager>();
 
-        //gameManger = GameObject.Find("GameManager").GetComponent<GameManager>();
+        mouseController = FindObjectOfType<MouseController>();
+
     }
 
     // Update is called once per frame
@@ -67,7 +76,6 @@ public class attack : MonoBehaviour
         return;
     }
     
-
     if (character.startingTile != null) {
         inRangeTiles = pathfinder.GetTilesInRange(character.startingTile, 3);
     } else {
@@ -82,8 +90,6 @@ public class attack : MonoBehaviour
 
         item.ShowTile();
         item.activatedTile = true;
-
-        //(Vector2.Distance(item.transform.position, enemy.transform.position) < 0.1f) 
 
         // Check if the enemy is standing on the tile
        if (Vector2.Distance(item.transform.position, enemy.transform.position) <= 0.5f) {
@@ -101,66 +107,16 @@ public class attack : MonoBehaviour
 }
 
 
-
-/*
-public void ToggleAttack() {
-    isAttackActive = !isAttackActive;
-    if (isAttackActive) {
-
-        // Disable overlay tiles while attack is active (to prevent movement in scene when clicking attack button overlayed on screen)
-        foreach(var item in inRangeTiles) {
-            item.GetComponent<Collider2D>().isTrigger = true;
-        }
+public void CollisionAttack() {
+    if (IsTileNextToEnemy(character.activeTile)) {
+        Debug.Log("Attack");
+        enemy.GetComponent<Enemy>().TakeDamage(.1f);
+        //attackReady = false;
+        gameManager.EndTurn();
     } else {
-        // Enable overlay tiles again when attack is toggled off
-        foreach(var item in inRangeTiles) {
-            item.GetComponent<Collider2D>().isTrigger = false;
-            item.HideTile();
-            enemyInRange = false;
-        }
+        Debug.Log("Attack not ready. Not in range sonion.");
     }
-} */
-
-
-
-// Trying to get this darn thing to work
-/*
-public void ToggleAttack()
-{
-    GetInRangeTiles();
-    if (!isAttackActive)
-    {
-        isAttackActive = true;
-        
-        if (enemyInRange)
-        {
-            
-            attackQueued = true;
-            queTurnNumber += 1;
-        }
-        else
-        {
-            attackQueued = false;
-        }
-    }
-    else
-    {
-        if (enemyInRange == true && queTurnNumber == 2)
-        {
-            PerformPunchAttack();
-            attackQueued = false;
-            ClearAttackTiles();
-        }
-        isAttackActive = false;
-    }
-
-    if (queTurnNumber == 2) {
-        attackReady = true;
-        queTurnNumber = 0;
-    } else {
-        attackReady = false;}
 }
-*/
 
 public void ToggleAttack() 
 {
@@ -178,7 +134,6 @@ public void ToggleAttack()
         }
         else
         {
-            // add code to move towards enemy
 
             attackQueued = false;
             attackReady = false;
@@ -196,6 +151,7 @@ public void ToggleAttack()
             attackReady = true;
         }
         isAttackActive = false;
+        isAttacking = false;
     }
 
     // Reset queTurnNumber to 0 when attack is toggled off
@@ -204,6 +160,48 @@ public void ToggleAttack()
         queTurnNumber = 0;
     }
 }
+
+
+public bool IsTileNextToEnemy(OverlayTile activeTile)
+{
+    Vector2Int enemyTilePosition = new Vector2Int(enemy.GetComponent<Enemy>().activeTile.gridLocation.x, enemy.GetComponent<Enemy>().activeTile.gridLocation.y);
+    Vector2Int activeTilePosition = new Vector2Int(character.activeTile.gridLocation.x, character.activeTile.gridLocation.y);
+
+    int diffX = Mathf.Abs(activeTilePosition.x - enemyTilePosition.x);
+    int diffY = Mathf.Abs(activeTilePosition.y - enemyTilePosition.y);
+
+    // Check if the tile is adjacent to the enemy tile
+    if((diffX == 1 && diffY == 0) || (diffX == 0 && diffY == 1))
+    {
+        return true;
+    }
+
+    return false;
+}
+
+
+
+void OnTriggerEnter2D(Collider2D other) {
+    if(other.gameObject.CompareTag("Enemy")) {
+        enemyInRange = true;
+        enemy = other.gameObject; // the enemy that entered your attack range
+    }
+}
+
+void OnTriggerExit2D(Collider2D other) {
+    if(other.gameObject.CompareTag("Enemy")) {
+        enemyInRange = false;
+        enemy = null; // no enemy in range
+    }
+}
+
+/*void OnDrawGizmosSelected() {
+    if (character != null) {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(character.transform.position, attackRange);
+    }
+}*/
+
 
 
 
@@ -223,47 +221,12 @@ public void ToggleAttack()
 
 
 
-
-
-
-
-/*
-     private void UpdateAttackTiles()
-    {
-        OverlayTile mouseTile = GetTileUnderMouse();
-        if (mouseTile != null && inRangeTiles.Contains(mouseTile))
-        {
-            foreach (var tile in inRangeTiles)
-            {
-                if (tile == mouseTile)
-                {
-                    tile.HighlightRed();
-                }
-                else
-                {
-                    foreach(var item in inRangeTiles) {
-            item.HideTile();
-        }
-                }
-            }
-        }
-        else
-        {
-            foreach (var tile in inRangeTiles)
-            {
-                tile.HideTile();
-            }
-        }
-    }
-*/
-
-
-
  public void PerformPunchAttack() {
         if(attackReady == true) {
             Debug.Log("Punch attack");
             enemy.GetComponent<Enemy>().TakeDamage(.1f);
             attackReady = false;
+            gameManager.EndTurn();
         } if(!enemyInRange) {
             Debug.Log("Attack not ready. Not in range.");
         } if(attackQueued == true && !attackReady) {
