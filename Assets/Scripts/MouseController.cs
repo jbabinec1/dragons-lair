@@ -136,20 +136,30 @@ public class MouseController : MonoBehaviour
                 
                 if (Input.GetMouseButtonDown(0) && overlayTile != null && gameManager.isPlayerTurn == true)
                 {
+                    List<OverlayTile> newPath = null;
                     if (character.activeTile == null)
                     {
                         // Set startingTile to the tile that the player is currently on
                         character.startingTile = focusedOnTileFromPlayer?.collider.gameObject.GetComponent<OverlayTile>();
 
-                        path = pathfinder.FindPath(character.startingTile, overlayTile);
+                     // OG   path = pathfinder.FindPath(character.startingTile, overlayTile);
+                         newPath = pathfinder.FindPath(character.startingTile, overlayTile);
 
                         character.activeTile = character.startingTile;
 
                     }
                     else if (character.activeTile != overlayTile)
                     {
-                        path = pathfinder.FindPath(character.activeTile, overlayTile);
-                        character.activeTile = overlayTile;
+                     //OG   path = pathfinder.FindPath(character.activeTile, overlayTile);
+                        newPath = pathfinder.FindPath(character.activeTile, overlayTile);
+                    //OG    character.activeTile = overlayTile;
+                    }
+
+                    //TEST
+                    if (newPath != null && newPath.Count > 0)
+                    {
+                    path = newPath;
+                    character.activeTile = overlayTile;
                     }
                 } 
             } else if(focusedTileHit.Value.collider.gameObject == enemy) // If the mouse is over the enemy
@@ -310,7 +320,7 @@ public void MoveAlongPath()
         //Debug.Log("Detected enemy in path. Attacking...");
         if (!isAttacking) {
             Debug.Log("Toggling attack...");
-            attackScript.CollisionAttack();
+            attackScript.CollisionAttack(); // Default attack with collision
             isAttacking = true;
         }
         timeBlocked += Time.deltaTime;

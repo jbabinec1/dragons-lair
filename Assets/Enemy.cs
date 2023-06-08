@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+     void Update()
     {
     
         // Check if it's the enemy's turn
@@ -70,7 +70,6 @@ public class Enemy : MonoBehaviour
             startingTile = focusedOnTileFromPlayer.Value.collider.gameObject.GetComponent<OverlayTile>();
 
         }
-     //  if (focusedOnTileFromPlayer != null && focusedOnTileFromPlayer.HasValue) {
        
         // Check if the player is visible
         CheckForPlayer();
@@ -85,7 +84,6 @@ public class Enemy : MonoBehaviour
 
             else if(activeTile != player.GetComponent<CharacterInfo>().activeTile) {
                  path = pathfinder.FindPath(activeTile, player.GetComponent<CharacterInfo>().activeTile);
-                // activeTile = player.GetComponent<CharacterInfo>().activeTile;
             }
 
             // Move the enemy along the path
