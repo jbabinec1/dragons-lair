@@ -12,6 +12,12 @@ public class MapManager : MonoBehaviour
     private static MapManager _instance;
     public static MapManager Instance { get { return _instance; } }
 
+    
+    public Pathfinder pathfinder;
+
+    // Public getter for Pathfinder instance
+    public Pathfinder PathfinderInstance { get { return pathfinder; } }
+
     // Update is called once per frame
     private void Awake()
     {
@@ -34,13 +40,28 @@ public class MapManager : MonoBehaviour
     {
       
         SpawnTiles();
+        
+        //test
+        var tileMap = gameObject.GetComponentInChildren<Tilemap>();
+
+        if(tileMap == null) 
+    {
+        Debug.LogError("Tilemap is null in MapManager.Start()");
+    }
+    else 
+    {
+        Debug.Log("Tilemap is properly set in MapManager.Start()");
+    }
+
+
+    pathfinder = new Pathfinder();
+
 
     }
 
 
 
 
-    //Spawning tiles just on client side
     public void SpawnTiles()
     {
         var tileMap = gameObject.GetComponentInChildren<Tilemap>();

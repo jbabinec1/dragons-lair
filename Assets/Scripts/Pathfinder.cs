@@ -12,6 +12,20 @@ public class Pathfinder
 
     public Tilemap overlayTilemap;
 
+   //test this constructor originally not in here
+ /*  public Pathfinder(Tilemap overlayTilemap) 
+{
+    this.overlayTilemap = overlayTilemap;
+    
+    if(this.overlayTilemap == null)
+    {
+        Debug.LogError("overlayTilemap is null in Pathfinder constructor");
+    }
+    else
+    {
+        Debug.Log("overlayTilemap is properly set in Pathfinder constructor");
+    }
+} */
 
 
 
@@ -147,6 +161,7 @@ public class Pathfinder
 
 public List<OverlayTile> GetAdjacentTiles(OverlayTile tile)
 {
+
     List<OverlayTile> adjacentTiles = new List<OverlayTile>();
 
     int x = (int)tile.transform.position.x;
@@ -183,16 +198,24 @@ public List<OverlayTile> GetAdjacentTiles(OverlayTile tile)
     return adjacentTiles;
 }
 
-// Returns the cell position of the given world position
+
 public Vector3Int WorldToCellPosition(Vector3 worldPosition)
 {
+     
+    if (overlayTilemap == null)
+    {
+        Debug.LogError("OverlayTilemap is null!");
+        return new Vector3Int(0, 0, 0);
+    }
     return overlayTilemap.WorldToCell(worldPosition);
 }
+
 
 
 // Returns the tile at the given position
 public OverlayTile GetTileAtPosition(int x, int y)
 {
+   
     Vector3 worldPosition = new Vector3(x, y, 0);
     Vector3Int cellPosition = WorldToCellPosition(worldPosition);
     Vector3 cellCenterWorld = overlayTilemap.GetCellCenterWorld(cellPosition);

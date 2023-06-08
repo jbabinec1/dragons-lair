@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.Tilemaps;
 
 
 public class MouseController : MonoBehaviour
@@ -12,10 +13,16 @@ public class MouseController : MonoBehaviour
     private CharacterInfo character;
     public Animator characterAnimationSprite;
     public attack attackStatus;
+    public attack attackScript;
 
     public GameObject enemy;
+    //public Enemy enemy;
 
-    private Pathfinder pathfinder;
+    public GameManager gameManager;
+
+    public MouseController mouseController;
+
+    public Pathfinder pathfinder;
 
     public float speed;
 
@@ -28,12 +35,24 @@ public class MouseController : MonoBehaviour
 
     public LayerMask collisionLayers;
 
-    private float timeBlocked = 0f;
-    public float maxTimeBlocked = 0.5f; // You can adjust this value as needed
 
     public float movementForce = 100f;
     
     public bool isTurnInProgress = true;
+
+    public Color defaultHoverColor;
+    public Color enemyHoverColor;
+
+    public SpriteRenderer hoverIconRenderer;
+
+    private float timeBlocked = 0f;
+    public float maxTimeBlocked = 2f;
+    public bool isBlocked = false;
+
+    public  bool isAttacking = false;
+
+
+
 
  
 
@@ -42,12 +61,29 @@ public class MouseController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //character = characterPrefab.GetComponent<CharacterInfo>();
-        pathfinder = new Pathfinder();
+        //test
+       // var tileMap = gameObject.GetComponentInChildren<Tilemap>();
+       // pathfinder = new Pathfinder(tileMap);
+
+        //OG?
+         pathfinder = new Pathfinder();
+        
+        
+        // pathfinder = new Pathfinder();
+        gameManager = FindObjectOfType<GameManager>();
+
+        attackScript = FindObjectOfType<attack>();
+
+        mouseController = FindObjectOfType<MouseController>();
         
         character = GameObject.Find("dragon_child").GetComponent<CharacterInfo>();
         characterAnimationSprite = GameObject.Find("dragon_child").GetComponent<Animator>();
+        //enemy = GameObject.Find("enemy_idle_01").GetComponent<Enemy>();
         enemy = GameObject.Find("enemy_idle_01");
+
+        hoverIconRenderer = GameObject.Find("Cursor").GetComponent<SpriteRenderer>();
+
+
     }
 
 
@@ -58,43 +94,79 @@ public class MouseController : MonoBehaviour
 
         var focusedTileHit = GetFocusedOnTile();
 
-        var focusedOnTileFromPlayer = GetFocusedOnTileFromPlayer();
+        //var focusedOnTileFromPlayer = GetFocusedOnTileFromPlayer();
+        var focusedOnTileFromPlayer = GetTileUnderMouse();
 
         var isMoving = false;
+
+
+        // Get the mouse position on the screen and print it out
+        Vector3 mouseScreenPosition = Input.mousePosition;
+        mouseScreenPosition.z = 10.0f;
+
+        // Convert the screen position of the mouse to a world position and print it out
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
 
         if (focusedOnTileFromPlayer.HasValue)
         {
             character.startingTile = focusedOnTileFromPlayer.Value.collider.gameObject.GetComponent<OverlayTile>();
 
         }
-
+        
         if (focusedTileHit != null && focusedTileHit.HasValue && !IsPointerOverUIObject())
         {
             OverlayTile overlayTile = focusedTileHit.Value.collider.gameObject.GetComponent<OverlayTile>();
+
+            if (focusedTileHit.Value.collider.gameObject == enemy)
+            {
+                hoverIconRenderer.color = Color.red;
+            }
+            else
+            {
+
+                hoverIconRenderer.color = Color.yellow;
+
+            } 
 
             if (overlayTile != null)
             {
                 transform.position = overlayTile.transform.position;
                 gameObject.GetComponent<SpriteRenderer>().sortingOrder = overlayTile.GetComponent<SpriteRenderer>().sortingOrder;
+
+                
                 if (Input.GetMouseButtonDown(0) && overlayTile != null && gameManager.isPlayerTurn == true)
                 {
+                    List<OverlayTile> newPath = null;
                     if (character.activeTile == null)
                     {
                         // Set startingTile to the tile that the player is currently on
                         character.startingTile = focusedOnTileFromPlayer?.collider.gameObject.GetComponent<OverlayTile>();
 
-                        path = pathfinder.FindPath(character.startingTile, overlayTile);
+                     // OG   path = pathfinder.FindPath(character.startingTile, overlayTile);
+                         newPath = pathfinder.FindPath(character.startingTile, overlayTile);
 
                         character.activeTile = character.startingTile;
 
                     }
                     else if (character.activeTile != overlayTile)
                     {
-                        path = pathfinder.FindPath(character.activeTile, overlayTile);
-                        character.activeTile = overlayTile;
+                     //OG   path = pathfinder.FindPath(character.activeTile, overlayTile);
+                        newPath = pathfinder.FindPath(character.activeTile, overlayTile);
+                    //OG    character.activeTile = overlayTile;
                     }
+
+                    //TEST
+                    if (newPath != null && newPath.Count > 0)
+                    {
+                    path = newPath;
+                    character.activeTile = overlayTile;
+                    }
+                } 
+            } else if(focusedTileHit.Value.collider.gameObject == enemy) // If the mouse is over the enemy
+                 {
+                 transform.position = mouseWorldPosition;
+                 gameObject.GetComponent<SpriteRenderer>().sortingOrder = enemy.GetComponent<SpriteRenderer>().sortingOrder + 1;
                 }
-            }
         }
 
         if (path != null && path.Count > 0)
@@ -118,6 +190,8 @@ public class MouseController : MonoBehaviour
     }
 
 
+
+
     public RaycastHit2D? GetFocusedOnTile()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -135,6 +209,25 @@ public class MouseController : MonoBehaviour
     }
 
     
+    public RaycastHit2D? GetTileUnderMouse()
+   {
+    Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
+
+    if (hit.collider != null)
+    {
+        OverlayTile tile = hit.collider.gameObject.GetComponent<OverlayTile>();
+        if (tile != null)
+        {
+            return hit;
+        }
+    }
+
+    return null;
+}
+
+
+    
     private void PositionCharacterOnTile(OverlayTile tile)
     {
         character.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z);
@@ -150,72 +243,118 @@ public class MouseController : MonoBehaviour
     }
 
 
-/*
-public void MoveAlongPath()
-{
-    if (!isTurnInProgress && path != null && path.Count > 0)
+
+    public void MoveTowardsEnemy(GameObject enemyObject)
+   {
+    path = pathfinder.FindPath(character.activeTile, enemyObject.GetComponent<Enemy>().activeTile);
+
+    if (path.Count > 0)
     {
-        isTurnInProgress = true;
+       MoveAlongPath();
+    }
+    else
+    {
+        Debug.Log("No path to enemy found!");
     }
 
-    if (isTurnInProgress)
+
+}
+
+
+/* Test
+public void MoveTowardsEnemy(GameObject enemyObject)
+{
+    // Get the enemy's current tile
+    var enemy = enemyObject.GetComponent<Enemy>();
+    OverlayTile enemyTile = enemy.activeTile;
+
+    // Get the tiles adjacent to the enemy
+    var adjacentTiles = pathfinder.GetAdjacentTiles(enemyTile);
+    
+    // Find the tile that is immediately below the enemy
+    OverlayTile tileInFrontOfEnemy = null;
+    foreach (var tile in adjacentTiles)
     {
-        if (path != null && path.Count > 0)
+        // Check if the tile's y-coordinate is below the enemy's y-coordinate
+        if (tile.transform.position.y < enemy.transform.position.y)
         {
-            Vector2 newPosition = path[0].transform.position;
-            Vector2 direction = newPosition - (Vector2)character.transform.position;
-            direction.Normalize();
-
-            Rigidbody2D rb = character.GetComponent<Rigidbody2D>();
-
-            RaycastHit2D hit = Physics2D.Linecast(character.transform.position, newPosition);
-
-            if (hit.collider != null && hit.collider.gameObject != character.gameObject)
-            {
-                timeBlocked += Time.deltaTime;
-                if (timeBlocked >= maxTimeBlocked)
-                {
-                    path.Clear();
-                    isTurnInProgress = false;
-                    GameManager gameManager = FindObjectOfType<GameManager>();
-                    gameManager.EndTurn();
-                }
-                return;
-            }
-            else
-            {
-                timeBlocked = 0;
-            }
-
-            rb.AddForce(direction * movementForce * Time.deltaTime);
-
-            if ((character.transform.position - path[0].transform.position).magnitude < 0.1f)
-            {
-                rb.velocity = Vector2.zero;
-                PositionCharacterOnTile(path[0]);
-                path.RemoveAt(0);
-
-                if (path.Count == 0)
-                {
-                    character.turnsTaken++;
-                    isTurnInProgress = false;
-                    GameManager gameManager = FindObjectOfType<GameManager>();
-                    gameManager.EndTurn();
-                }
-                else
-                {
-                    character.stepsTaken++;
-                }
-            }
+            tileInFrontOfEnemy = tile;
+            break;
         }
     }
-}*/
+
+    if(tileInFrontOfEnemy != null)
+    {
+        path = pathfinder.FindPath(character.activeTile, tileInFrontOfEnemy);
+
+        if (path.Count > 0)
+        {
+            MoveAlongPath();
+        }
+        else
+        {
+            Debug.Log("No path to enemy found!");
+        }
+    }
+    else
+    {
+        Debug.Log("No valid tile in front of enemy found!");
+    }
+}
+*/
 
 
 
+public void MoveAlongPath()
+{
+    var step = speed * Time.deltaTime;
+    var zIndex = path[0].transform.position.z;
+    Vector2 currentPosition = character.transform.position;
+    Vector2 targetPosition = path[0].transform.position;
+    Vector2 direction = (targetPosition - currentPosition).normalized;
+
+    float distanceToTarget = Vector2.Distance(currentPosition, targetPosition);
+    RaycastHit2D hit = Physics2D.Raycast(currentPosition, direction, distanceToTarget, collisionLayers);
+
+    if(hit.collider != null && hit.collider.gameObject.CompareTag("Enemy")) {
+        //Debug.Log("Detected enemy in path. Attacking...");
+        if (!isAttacking) {
+            Debug.Log("Toggling attack...");
+            attackScript.CollisionAttack(); // Default attack with collision
+            isAttacking = true;
+        }
+        timeBlocked += Time.deltaTime;
+        if (timeBlocked >= maxTimeBlocked) {
+            Debug.Log("Trying to end turn...");
+            isAttacking = false;
+            path.Clear();
+            gameManager.EndTurn();
+            return;
+        }
+    }
+    else {
+        isAttacking = false;
+        character.transform.position = Vector2.MoveTowards(character.transform.position, path[0].transform.position, step);
+        character.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, zIndex);
+        timeBlocked = 0f;
+    }
+    if ((character.transform.position - path[0].transform.position).magnitude < 0.0001f) {         
+        PositionCharacterOnTile(path[0]);
+        path.RemoveAt(0);
+        if(path.Count == 0 ) { 
+            //character.turnsTaken++;
+            gameManager.EndTurn();
+        } else {
+            character.stepsTaken++;
+        }
+    }
+}
 
 
 
+ 
+
+/* OG
     public void MoveAlongPath()
     {
       
@@ -244,16 +383,10 @@ public void MoveAlongPath()
                 character.stepsTaken++;
             }
 
-            //Turns vs Steps.. Turns are the total number of times the character reached destination. Steps is the total amount of steps taken.
-
-
-            //character.stepsTaken = 0;
-            //character.turnsTaken++;
-
         } 
        
 
-    }
+    } */
 
 
     //  Get the tile the player is currently on
