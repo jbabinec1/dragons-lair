@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Enemy : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class Enemy : MonoBehaviour
     public LayerMask collisionLayers;
 
     private float timeBlocked = 0f;
-    public float maxTimeBlocked = 0.5f; // You can adjust this value as needed
+    public float maxTimeBlocked = 0.5f;
 
     public float maxHealth = 1;
     public float currentHealth = 1;
@@ -38,8 +39,13 @@ public class Enemy : MonoBehaviour
 
         gameManager = FindObjectOfType<GameManager>();
 
-    
+        //test
+        //var tileMap = gameObject.GetComponentInChildren<Tilemap>();
+        //pathfinder = new Pathfinder(tileMap);
+
+        //OG
         pathfinder = new Pathfinder();
+
         actionPoints = 2;
         nodesMoved = 0;
 
@@ -49,7 +55,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+     void Update()
     {
     
         // Check if it's the enemy's turn
@@ -64,7 +70,6 @@ public class Enemy : MonoBehaviour
             startingTile = focusedOnTileFromPlayer.Value.collider.gameObject.GetComponent<OverlayTile>();
 
         }
-     //  if (focusedOnTileFromPlayer != null && focusedOnTileFromPlayer.HasValue) {
        
         // Check if the player is visible
         CheckForPlayer();
@@ -79,7 +84,6 @@ public class Enemy : MonoBehaviour
 
             else if(activeTile != player.GetComponent<CharacterInfo>().activeTile) {
                  path = pathfinder.FindPath(activeTile, player.GetComponent<CharacterInfo>().activeTile);
-                 activeTile = player.GetComponent<CharacterInfo>().activeTile;
             }
 
             // Move the enemy along the path
@@ -112,6 +116,8 @@ public void MoveAlongPath()
         Vector2 targetPosition = path[0].transform.position;
         Vector2 direction = (targetPosition - currentPosition).normalized;
 
+        Debug.DrawRay(currentPosition, direction * step, Color.red);
+
         // Perform a CircleCast to check for collisions
         float colliderRadius = GetComponent<CircleCollider2D>().radius;
         RaycastHit2D hit = Physics2D.CircleCast(currentPosition, colliderRadius, direction, step, collisionLayers);
@@ -142,7 +148,7 @@ public void MoveAlongPath()
             nodesMoved++;
         }
     }
-}
+} 
 
     
     /*
